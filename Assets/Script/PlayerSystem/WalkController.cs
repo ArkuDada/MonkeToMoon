@@ -16,8 +16,8 @@ public class WalkController : MonoBehaviour
 
     public void Walk(Vector2 vec2)
     {
-        var finalVec = rb.velocity;
-        //check if the player is on the ground and not on slope
+        var finalVec = new Vector2(moveSpeed * vec2.x, rb.velocity.y);
+        /*//check if the player is on the ground and not on slope
         if (newCollCheck.OnGround && !newCollCheck.OnSlope && !newCollCheck.IsJumping && !newCollCheck.OnPlatform)
         {
             finalVec = new Vector2(moveSpeed * vec2.x, 0.0f);
@@ -31,8 +31,8 @@ public class WalkController : MonoBehaviour
         //if not grounded
         else if (!newCollCheck.OnGround)
         {
-            finalVec = new Vector2(moveSpeed * vec2.x, rb.velocity.y);
-        }
+            
+        }*/
         rb.velocity = finalVec;
     }
 }
