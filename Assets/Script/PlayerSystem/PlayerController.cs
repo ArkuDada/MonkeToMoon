@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         controllerInput = new Vector2(horizontal, vertical);
 
         anim.SetHorizontalMovement(horizontal, vertical, rigid2D.velocity.y);
-        Debug.Log($"ve; {rigid2D.velocity.x}");
+        //Debug.Log($"ve; {rigid2D.velocity.x}");
         if (!newCollCheck.DropPlatform || !newCollCheck.OnSlip)
         {
             jumpController.JumpCall();
