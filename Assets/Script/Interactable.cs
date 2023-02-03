@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     public GameObject toggleObject;
+    public InteractableType ite;
+    public ItemType itemType;
+    public GameObject pickupPrefab;
     private void Start()
     {
         toggleObject.SetActive(false);
@@ -14,6 +18,15 @@ public class Interactable : MonoBehaviour
     public void Interact()
     {
         Debug.Log("Interact");
+        switch (ite)
+        {
+            case InteractableType.Collectable:
+                GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+                var pick = pickup.GetComponent<ItemPickup>();
+                pick.itemType = itemType;
+                    
+                break;
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,6 +37,8 @@ public class Interactable : MonoBehaviour
             {
                 toggleObject.SetActive(true);
             }
+
+           
             
         }
     }
@@ -42,9 +57,5 @@ public class Interactable : MonoBehaviour
 }
 public enum InteractableType
 {
-    None = 0,
-    Attackable = 1,
-    Collectable = 2,
-    Interactable = 3,
-    Usable = 4,
+    Collectable,
 }
