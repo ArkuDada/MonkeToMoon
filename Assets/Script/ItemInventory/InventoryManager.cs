@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoSingleton<InventoryManager>
 {
     private Dictionary<ItemType, int> Inv;
 
@@ -13,7 +13,7 @@ public class InventoryManager : MonoBehaviour
     {
         OnInvUpdate.Invoke(Inv);
     }
-    public void AddItem(ItemType type, int count)
+    public void AddItem(ItemType type, int count = 1)
     {
         if(!Inv.ContainsKey(type))
         {

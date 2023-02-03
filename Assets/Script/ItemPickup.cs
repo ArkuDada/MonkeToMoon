@@ -26,6 +26,7 @@ public class ItemPickup : MonoBehaviour
         {
             Debug.Log($"Pickup {itemType}");
             Destroy(gameObject);
+           InventoryManager.Instance.AddItem(itemType);
         }
     }
 }
