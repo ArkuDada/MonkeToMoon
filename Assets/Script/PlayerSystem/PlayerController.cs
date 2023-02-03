@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private JumpController jumpController;
     [SerializeField] private OneWayPlatform oneWay;
     [SerializeField] private ParticleController particleController;
-    [SerializeField] private AttackController attackController;
+    public AttackController attackController;
     
     [Header("Assign")]
     [SerializeField] private Rigidbody2D rigid2D;
@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
         canAttack = true;
         IsAttacking = false;
 

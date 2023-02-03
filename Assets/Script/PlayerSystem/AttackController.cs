@@ -8,10 +8,12 @@ public class AttackController : MonoBehaviour
 {
     public float attackRange = 3;
     public Vector2 direction = Vector2.right;
+    public Interactable interactable;
 
     public void Fire()
     {
-        //Debug.Log("Fire");
+        if(interactable) interactable.Interact();
+        /*//Debug.Log("Fire");
         RaycastHit2D[] hits;
         //hits = Physics2D.RaycastAll(transform.position, direction, attackRange);
         hits = Physics2D.CapsuleCastAll((Vector2)transform.position + direction * (attackRange / 2f),
@@ -28,6 +30,6 @@ public class AttackController : MonoBehaviour
                 attackable.Hit();
                 break;
             }
-        }
+        }*/
     }
 }
