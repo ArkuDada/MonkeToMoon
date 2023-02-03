@@ -15,3 +15,11 @@ public class Interactable : MonoBehaviour
         
     }
 }
+public enum InteractableType
+{
+    None = 0,
+    Attackable = 1,
+    Collectable = 2,
+    Interactable = 3,
+    Usable = 4,
+}
