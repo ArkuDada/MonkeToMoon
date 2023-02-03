@@ -13,18 +13,18 @@ public class OneWayPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("OneWayPlatform"))
+        /*if (collision.gameObject.CompareTag("OneWayPlatform"))
         {
             onewayPlatform = collision.gameObject;
-        }
+        }*/
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("OneWayPlatform"))
+        /*if (collision.gameObject.CompareTag("OneWayPlatform"))
         {
             onewayPlatform = null;
-        }
+        }*/
     }
 
     public IEnumerator CollisionOff()

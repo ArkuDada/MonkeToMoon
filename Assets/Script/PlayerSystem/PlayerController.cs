@@ -142,13 +142,13 @@ public class PlayerController : MonoBehaviour
             rigid2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
-        if (vertical<0)
+        /*if (vertical<0)
         {
             if (oneWay.OnewayPlatform != null)
             {
                 StartCoroutine(oneWay.CollisionOff());
             }
-        }
+        }*/
         //code pete sux here
         if (horizontal == 0 && Input.GetButton("Jump"))
         {
