@@ -32,6 +32,7 @@ public class PeriodSwitcher : MonoBehaviour
         }
     }
 }
+[System.Serializable]
 public struct EraInfo
 {
     public Era era;
