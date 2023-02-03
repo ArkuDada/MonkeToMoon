@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ItemDatabase : MonoSingleton<ItemDatabase>
 {
-    public Dictionary<ItemType, ItemDataSO> Database;
+    public Dictionary<ItemType, ItemDataSO> Database = new Dictionary<ItemType, ItemDataSO>();
 
-    [SerializeField] private List<ItemDataSO> itemDataSOs;
+    [SerializeField] private List<ItemDataSO> itemDataSOs = new List<ItemDataSO>();
     private void Awake()
     {
         foreach(ItemDataSO idSO in itemDataSOs)
