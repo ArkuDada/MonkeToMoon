@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bd712b1062830418031588d482c25a, type: 3}
   m_Name: InteractionSO
   m_EditorClassIdentifier: 
+  Requirement:
+    Requirements: []
   era: 0
+  isResultItem: 0
+  ResultItem: 0
+  ResultAmount: 0

@@ -7,6 +7,7 @@ public class InventoryManager : MonoSingleton<InventoryManager>
 {
     private Dictionary<ItemType, int> Inv = new Dictionary<ItemType, int>();
 
+    [HideInInspector]
     public UnityEvent<Dictionary<ItemType, int>> OnInvUpdate = new UnityEvent<Dictionary<ItemType, int>>();
 
     private void UpdateInv()
