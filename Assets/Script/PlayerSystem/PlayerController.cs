@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [Header("Assign")]
     [SerializeField] private Rigidbody2D rigid2D;
     [SerializeField] private CapsuleCollider2D capCollider;
-    public SpriteRenderer spriteRenderer;
     public Rigidbody2D Rigid2D => rigid2D;
     public CapsuleCollider2D CapCollider => capCollider;
 
@@ -30,11 +29,7 @@ public class PlayerController : MonoBehaviour
                      private Vector2 controllerInput;
     public float Horizontal => horizontal;
     public float Vertical => vertical;
-
-    [Header("Friction")]
-    [SerializeField] private PhysicsMaterial2D noFriction;
-    [SerializeField] private PhysicsMaterial2D fullFriction;
-
+    
     [Header("Condition")]
     [SerializeField] private bool groundInteract;
     [SerializeField] private bool canMove = true;
@@ -102,6 +97,7 @@ public class PlayerController : MonoBehaviour
         {
             if (canAttack && !IsAttacking)
             {
+                particleController.AttackParticle.Play();
                 attackController.direction = new Vector2(Side, 0);
                 attackController.Fire();
                 anim.SetTrigger("attacking");
@@ -171,11 +167,4 @@ public class PlayerController : MonoBehaviour
         IsAttacking = false;
     }
 
-    public enum  ReplayState
-    {
-        None,
-        Ready,
-        Playing,
-        Stop
-    }
 }

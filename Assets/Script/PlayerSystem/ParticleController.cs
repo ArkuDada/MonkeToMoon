@@ -13,6 +13,8 @@ public class ParticleController : MonoBehaviour
     [SerializeField] private ParticleSystem walkParticle;
     public ParticleSystem WalkParticle => walkParticle;
     [SerializeField] private ParticleSystem jumpParticle;
+    [SerializeField] private ParticleSystem attackParticle;
+    public ParticleSystem AttackParticle => attackParticle;
     public ParticleSystem JumpParticle => jumpParticle;
     [SerializeField] private float emissionRate = 30f;
     private ParticleSystem.EmissionModule emissionModule;

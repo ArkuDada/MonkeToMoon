@@ -11,6 +11,7 @@ public class AttackController : MonoBehaviour
 
     public void Fire()
     {
+        //Debug.Log("Fire");
         RaycastHit2D[] hits;
         //hits = Physics2D.RaycastAll(transform.position, direction, attackRange);
         hits = Physics2D.CapsuleCastAll((Vector2)transform.position + direction * (attackRange / 2f),
@@ -22,11 +23,11 @@ public class AttackController : MonoBehaviour
         Debug.DrawRay(transform.position, direction * attackRange, Color.red, 1f);
         for (int i = 0; i < hits.Length; i++)
         {
-            /*if (hits[i].transform.gameObject.TryGetComponent<Attackable>(out Attackable attackable))
+            if (hits[i].transform.gameObject.TryGetComponent<Interactable>(out Interactable attackable))
             {
                 attackable.Hit();
                 break;
-            }*/
+            }
         }
     }
 }

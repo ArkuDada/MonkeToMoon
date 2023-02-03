@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Attackable : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
     public bool destroyOnHit;
     public UnityEvent onHit = new UnityEvent();
