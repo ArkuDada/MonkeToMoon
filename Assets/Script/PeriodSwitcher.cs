@@ -6,7 +6,6 @@ public class PeriodSwitcher : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<EraInfo> eraInfos;
-    public SpriteRenderer spriteRen;
     void Start()
     {
         PeriodManager.instance.onEraChange.AddListener(UpdateEra);
@@ -14,18 +13,27 @@ public class PeriodSwitcher : MonoBehaviour
 
     public void UpdateEra()
     {
-        Sprite sprite = eraInfos.Find(x => x.era == PeriodManager.instance.currentEra).sprite;
-        if (sprite != null)
+        foreach (EraInfo eraInfo in eraInfos)
         {
-            spriteRen.sprite = sprite;
-        }else
-        {
-         spriteRen.sprite = null;
+            if (eraInfo.era == PeriodManager.instance.currentEra)
+            {
+                foreach (GameObject obj in eraInfo.objects)
+                {
+                    obj.SetActive(true);
+                }
+            }
+            else
+            {
+                foreach (GameObject obj in eraInfo.objects)
+                {
+                    obj.SetActive(false);
+                }
+            }
         }
     }
 }
 public struct EraInfo
 {
     public Era era;
-    public Sprite sprite;
+    public GameObject[] objects;
 }
