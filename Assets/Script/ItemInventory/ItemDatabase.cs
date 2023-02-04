@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemDatabase : MonoSingleton<ItemDatabase>
 {
     public Dictionary<ItemType, ItemDataSO> Database = new Dictionary<ItemType, ItemDataSO>();
-
+    public Sprite missingItem;
     [SerializeField] private List<ItemDataSO> itemDataSOs = new List<ItemDataSO>();
 
     protected override void Awake()
