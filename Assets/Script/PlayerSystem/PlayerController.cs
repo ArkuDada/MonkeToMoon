@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isMainCharacter;
     public bool IsMainCharacter => isMainCharacter;
     public bool IsAttacking;
+    public float attackCooldown;
     private bool canAttack;
 
 
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
                 particleController.AttackParticle.Play();
                 attackController.direction = new Vector2(Side, 0);
                 attackController.Fire();
-                //StartCoroutine(DisableMovement());
+                StartCoroutine(DisableMovement());
             }
         }
 

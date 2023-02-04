@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class Landmark : InteractableScripted
 {
+    private float cooldown = 0f;
 
     public ItemType itemType;
-
     public GameObject pickupPrefab;
 
     // Start is called before the first frame update
     public override void Interact()
     {
-        GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
-        var pick = pickup.GetComponent<ItemPickup>();
-        pick.ItemType = itemType;
+        if (Time.timeSinceLevelLoad >= cooldown)
+        {
+            GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+            var pick = pickup.GetComponent<ItemPickup>();
+            pick.ItemType = itemType;
+
+            cooldown = Time.timeSinceLevelLoad + .75f;
+        }
     }
 }
+

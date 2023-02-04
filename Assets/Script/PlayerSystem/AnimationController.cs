@@ -31,6 +31,6 @@ public class AnimationController : MonoBehaviour
     public void Flip(int side)
     {
         bool state = (side != 1);
-        SpriteRen.flipX = !state;
+        SpriteRen.flipX = state;
     }
 }
