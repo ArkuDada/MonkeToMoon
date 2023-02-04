@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                 particleController.AttackParticle.Play();
                 attackController.direction = new Vector2(Side, 0);
                 attackController.Fire();
-                StartCoroutine(DisableMovement());
+                //StartCoroutine(DisableMovement());
             }
         }
 

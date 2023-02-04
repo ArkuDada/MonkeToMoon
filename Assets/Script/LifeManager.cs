@@ -9,7 +9,6 @@ public class LifeManager : MonoSingleton<LifeManager>
      public int birthYear;
      public int Age => em.year - birthYear;
      public bool immortal;
-     public float AgeFloat => em.year - birthYear ;
      public EraManager em => EraManager.Instance;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,11 @@ public class LifeManager : MonoSingleton<LifeManager>
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F2)) immortal = !immortal;
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            Debug.Log("Immortal: " + immortal);
+            immortal = !immortal;
+        }
     }
     public void AgeCheck()
     {
