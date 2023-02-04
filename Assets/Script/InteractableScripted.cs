@@ -2,17 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class InteractableScripted : Interactable
 {
 
     public List<InteractionSO> interactionList;
     protected int currentInteraction;
-
+private float interactTimer = 0;
     private bool IsCrafting => interactionList[currentInteraction].InteractionResultType == InteractionResultType.Craft;
 
 
-    public GameObject prompt;
+    public InteractionPrompt prompt;
     // Start is called before the first frame update
 
     private void Awake()
@@ -24,14 +25,22 @@ public class InteractableScripted : Interactable
     void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-
-        if(scroll > 0 && prompt.activeSelf)
+        if(scroll > 0 && prompt.gameObject.activeSelf)
         {
             ChangeInteraction(1);
         }
-        else if(scroll < 0 && prompt.activeSelf)
+        else if(scroll < 0 && prompt.gameObject.activeSelf)
         {
             ChangeInteraction(-1);
+        }
+        if(interactTimer > 0)
+        {
+            interactTimer -= Time.deltaTime;
+        }
+
+        if (interactionList[currentInteraction].InteractionResultType == InteractionResultType.Resource&&IsInRange)
+        {
+            prompt.SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract(),interactionList.Count);
         }
     }
 
@@ -47,8 +56,7 @@ public class InteractableScripted : Interactable
             {
                 currentInteraction = interactionList.Count - 1;
             }
-            prompt.GetComponent<InteractionPrompt>()
-                .SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract());
+            prompt.SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract(),interactionList.Count);
             FreezeTime(true);
 
     }
@@ -81,15 +89,39 @@ public class InteractableScripted : Interactable
             else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Victory)
             {
                 
-            }
+            }else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Resource)
+                     {
+                         if(interactTimer > 0)
+                         {
+                             return;
+                         }
+                         
+                         foreach(var drop in interactionList[currentInteraction].Requirement.Requirements)
+                         {
+                             if(Random.Range(0.0f, 100.0f)
+                                <= drop.Droprate)
+                             {
+                                 for (int i = 0; i < drop.Amount; i++)
+                                 {
+                                     GameObject pickup = Instantiate(GameManager.Instance.PickupPrefab, transform.position, Quaternion.identity);
+                                     var pick = pickup.GetComponent<ItemPickup>();
+                                     pick.ItemType = drop.Item;
+                                 }
+             
+                             }
+                         }
+             
+                         interactTimer = interactionList[currentInteraction].CooldownTime;
+                     }
            
         }
     }
     public bool CanCompleteInteract()
     {
-        if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Resource )
+        
+        if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Resource)
         {
-            return true;
+            return!(interactTimer > 0);
         }
         
         if(interactionList[currentInteraction].Requirement.Count > 0)
@@ -108,16 +140,15 @@ public class InteractableScripted : Interactable
 
     protected void ShowPrompt(bool isActive)
     {
-        if(prompt.activeSelf == isActive || interactionList.Count == 0)
+        if(prompt.gameObject.activeSelf == isActive || interactionList.Count == 0)
         {
             return;
         }
 
-        prompt.SetActive(isActive);
+        prompt.gameObject.SetActive(isActive);
         if(isActive)
         {
-            prompt.GetComponent<InteractionPrompt>()
-                .SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract());
+            prompt.SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract(),interactionList.Count);
         }
     }
 

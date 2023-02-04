@@ -47,6 +47,5 @@ MonoBehaviour:
   landMark:
   - completed: 0
     type: 0
-    objects:
-    - {fileID: 0}
+    objects: []
   PickupPrefab: {fileID: 4777755363018415992, guid: 04ce52e6922c8994badc32f2bd909e3f, type: 3}

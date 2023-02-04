@@ -8,15 +8,19 @@ public class InteractionPrompt : MonoBehaviour
     public List<PromptItemIcon> Icons;
     public float iconSize = 1f;
     public float iconPadding = 0.5f;
-
+    public GameObject scrollPrompt;
+    public GameObject interactPrompt;
+    
     [SerializeField]
     private GameObject iconPrefab;
     private void OnEnable()
     {
 //        throw new NotImplementedException();
     }
-    public void SetPromptDetail(InteractionSO interactionDetail, bool canInteract)
+    public void SetPromptDetail(InteractionSO interactionDetail, bool canInteract,int interactCount)
     {
+        interactPrompt.SetActive(canInteract);
+        scrollPrompt.SetActive(interactCount > 1);
         if(Icons.Count > 0)
         {
             foreach(var icon in Icons)

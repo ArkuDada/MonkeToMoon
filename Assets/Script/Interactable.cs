@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     protected UnityAction<bool> IsPlayerInRange;
+    protected bool IsInRange;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class Interactable : MonoBehaviour
         {
             PlayerController.Instance.attackController.interactable = this;
             IsPlayerInRange?.Invoke(true);
+            IsInRange = true;
         }
     }
 
@@ -29,6 +31,7 @@ public class Interactable : MonoBehaviour
             if(PlayerController.Instance.attackController.interactable == this)
                 PlayerController.Instance.attackController.interactable = null;
             IsPlayerInRange?.Invoke(false);
+            IsInRange = false;
         }
     }
 
