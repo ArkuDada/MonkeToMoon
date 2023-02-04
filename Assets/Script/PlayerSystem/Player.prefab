@@ -10370,6 +10370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 1.5
   direction: {x: 1, y: 0}
+  interactable: {fileID: 0}
 --- !u!114 &5408658081537708215
 MonoBehaviour:
   m_ObjectHideFlags: 0

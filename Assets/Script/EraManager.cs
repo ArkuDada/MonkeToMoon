@@ -7,15 +7,15 @@ using UnityEngine.Events;
 public class EraManager : MonoSingleton<EraManager>
 {
     public int year;
-    float timer;
+    public float timer;
+    public bool freezeTime;
     public float yearDuration = 1;
     public List<EraData> eraDatas;
     public int currentEra;
     public EraData CurrentEraData => eraDatas[currentEra];
     public UnityEvent onEraChange = new UnityEvent();
 
-    public int birthYear;
-    public int Age => year - birthYear;
+    
     
     private void Start()
     {
@@ -26,26 +26,20 @@ public class EraManager : MonoSingleton<EraManager>
     {
         currentEra = eraDatas.FindIndex(x => x.era == era);
         onEraChange.Invoke();
-        Die();
+        LifeManager.Instance.Die();
     }
     public void Update()
     {
-        timer += Time.deltaTime;
+        if(!freezeTime)timer += Time.deltaTime;
         if (timer > yearDuration)
         {
             timer = 0;
             year += 1;
-            if (Age > CurrentEraData.lifeSpan)
-            {
-                Die();
-            }
+            LifeManager.Instance.AgeCheck();
         }
     }
 
-    public void Die()
-    {
-        birthYear = year;
-    }
+    
 
     [Button]
     public void NextEra()
