@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3bd712b1062830418031588d482c25a, type: 3}
-  m_Name: Resource_Wood 1
+  m_Name: Resource_Era_0_River
   m_EditorClassIdentifier: 
   Requirement:
     Requirements:
-    - Item: 2
+    - Item: 3
       Amount: 1
       Droprate: 100
   InteractionResultType: 3
@@ -22,4 +22,4 @@ MonoBehaviour:
   landmarkType: 0
   era: 0
   victoryType: 0
-  CooldownTime: 3
+  CooldownTime: 1

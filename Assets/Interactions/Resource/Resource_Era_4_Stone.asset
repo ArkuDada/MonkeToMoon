@@ -10,19 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3bd712b1062830418031588d482c25a, type: 3}
-  m_Name: Resource_Wood 2
+  m_Name: Resource_Era_4_Stone
   m_EditorClassIdentifier: 
   Requirement:
     Requirements:
     - Item: 2
-      Amount: 2
+      Amount: 3
+      Droprate: 100
+    - Item: 106
+      Amount: 1
+      Droprate: 45
+    - Item: 6
+      Amount: 1
       Droprate: 100
     - Item: 4
+      Amount: 2
+      Droprate: 80
+    - Item: 7
       Amount: 1
-      Droprate: 50
+      Droprate: 15
+    - Item: 8
+      Amount: 1
+      Droprate: 10
   InteractionResultType: 3
   ResultItem: 0
   landmarkType: 0
   era: 0
   victoryType: 0
-  CooldownTime: 3
+  CooldownTime: 1.5
