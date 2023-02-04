@@ -16,14 +16,19 @@ MonoBehaviour:
     Requirements:
     - Item: 12
       Amount: 2
+      Droprate: 100
     - Item: 16
       Amount: 2
+      Droprate: 100
     - Item: 14
       Amount: 2
+      Droprate: 100
     - Item: 17
       Amount: 3
+      Droprate: 100
   InteractionResultType: 1
   ResultItem: 0
   landmarkType: 4
-  era: 2
+  era: 4
   victoryType: 0
+  CooldownTime: 0

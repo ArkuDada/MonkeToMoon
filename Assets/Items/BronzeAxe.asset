@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3b15a455aeb83458375a830be5e61d, type: 3}
   m_Name: BronzeAxe
   m_EditorClassIdentifier: 
-  itemType: 101
+  itemType: 1001
   sprite: {fileID: 21300000, guid: 91621566dd1c1c548921decce29b1360, type: 3}
