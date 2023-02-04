@@ -1738,6 +1738,10 @@ PrefabInstance:
       propertyPath: interactionList.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3995742448878599141, guid: 5fd0449f70883664ba4417f04ca526ba, type: 3}
+      propertyPath: interactionList.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3995742448878599142, guid: 5fd0449f70883664ba4417f04ca526ba, type: 3}
       propertyPath: m_RootOrder
       value: 13

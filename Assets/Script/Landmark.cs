@@ -1,26 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Landmark : InteractableScripted
 {
     private float interactTimer = 0;
-    public float cooldownCount = .75f;
-
-    public ItemType itemType;
 
     public GameObject pickupPrefab;
 
 // Start is called before the first frame update
     public override void Interact()
     {
-        if (interactTimer <= 0)
-        {
-            GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
-            var pick = pickup.GetComponent<ItemPickup>();
-            pick.ItemType = itemType;
+        var InteractionDetail = interactionList[currentInteraction];
 
-            interactTimer = cooldownCount;
+        if(InteractionDetail.InteractionResultType == InteractionResultType.Resource)
+        {
+            if(interactTimer > 0)
+            {
+                return;
+            }
+            
+            foreach(var drop in InteractionDetail.Requirement.Requirements)
+            {
+                if(Random.Range(0.0f, 100.0f)
+                   <= drop.Droprate)
+                {
+                    GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+                    var pick = pickup.GetComponent<ItemPickup>();
+                    pick.ItemType = drop.Item;
+                }
+            }
+
+            interactTimer = interactionList[currentInteraction].CooldownTime;
+        }
+        else
+        {
+            base.Interact();
         }
     }
 

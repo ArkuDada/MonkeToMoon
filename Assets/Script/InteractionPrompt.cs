@@ -26,7 +26,10 @@ public class InteractionPrompt : MonoBehaviour
             Icons.Clear();
         }
 
+        bool isResource = interactionDetail.InteractionResultType == InteractionResultType.Resource;
+        
         int count = interactionDetail.Requirement.Requirements.Count;
+        //TODO:: count += isResource ? 1 : 0;
         float offset = (((iconSize * count) + (iconPadding * (count - 1))) / 2.0f) - iconPadding;
         foreach(var requirement in interactionDetail.Requirement.Requirements)
         {
@@ -37,13 +40,18 @@ public class InteractionPrompt : MonoBehaviour
             PromptItemIcon icon = iconObject.GetComponent<PromptItemIcon>();
             if(icon != null)
             {
-                icon.SetIcon(requirement.Item, requirement.Amount);
+                icon.SetIcon(requirement.Item, requirement.Amount , isResource ? (int)requirement.Droprate : -1);
                 icon.IsItemFound(InventoryManager.Instance.FoundItem(requirement.Item));
                 icon.IsInteractable(canInteract);
             }
 
             Icons.Add(icon);
 
+        }
+
+        if(isResource)
+        {
+            //TODO:: show clock icon
         }
     }
 }
