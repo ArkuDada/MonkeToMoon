@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Requirement:
     Requirements:
-    - Item: 4
+    - Item: 2
       Amount: 10
+      Droprate: 100
   InteractionResultType: 0
-  ResultItem: 5
+  ResultItem: 102
   landmarkType: 0
   era: 0
   victoryType: 0
+  CooldownTime: 0
