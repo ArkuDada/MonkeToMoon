@@ -27,9 +27,13 @@ public class Landmark : InteractableScripted
                 if(Random.Range(0.0f, 100.0f)
                    <= drop.Droprate)
                 {
-                    GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
-                    var pick = pickup.GetComponent<ItemPickup>();
-                    pick.ItemType = drop.Item;
+                    for (int i = 0; i < drop.Amount; i++)
+                    {
+                        GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+                        var pick = pickup.GetComponent<ItemPickup>();
+                        pick.ItemType = drop.Item;
+                    }
+
                 }
             }
 
