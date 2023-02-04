@@ -15,6 +15,8 @@ public class EdgeTeleporter : MonoBehaviour
             col.gameObject.transform.position =
                 new Vector3(otherTeleporter.Pos.x + otherTeleporter.offset.x, col.gameObject.transform.position.y,
                     otherTeleporter.Pos.z + otherTeleporter.offset.z);
+            
+            CameraManager.Instance.TeleportCamera(col.gameObject.transform.position);
         }
     }
 }
