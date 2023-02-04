@@ -8,14 +8,12 @@ public class InteractableScripted : Interactable
     // Start is called before the first frame update
     public override void Interact()
     {
-        if(IsAble())
+        if(TryCraft())
         {
-            foreach(var r in interactionSO.Requirement.Requirements)
+            foreach (var r in interactionSO.Requirement.Requirements)
             {
-                InventoryManager.Instance.RemoveItem(r.Item,r.Amount);
-
+                InventoryManager.Instance.RemoveItem(r.Item, r.Amount);
             }
-            
             if(interactionSO.isResultItem)
             {
                 InventoryManager.Instance.AddItem(interactionSO.ResultItem, interactionSO.ResultAmount);
@@ -27,23 +25,19 @@ public class InteractableScripted : Interactable
             }
         }
     }
-    public bool IsAble()
+    public bool TryCraft()
          {
-             if(interactionSO.Requirement.Count == 0)
+             if(interactionSO.Requirement.Count > 0)
              {
-                 return true;
-             }
-             
-             bool isAble = true;
-     
-             foreach(var r in interactionSO.Requirement.Requirements)
-             {
-                 if(!InventoryManager.Instance.HaveItems(r.Item, r.Amount))
+                 foreach(var r in interactionSO.Requirement.Requirements)
                  {
-                     isAble = false;
-                     break;
+                     if (!InventoryManager.Instance.HaveItems(r.Item, r.Amount))
+                     {
+                         return false;
+                     }
                  }
+                 
              }
-             return isAble;
+             return true;
          }
 }
