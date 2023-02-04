@@ -44,7 +44,7 @@ public class EraManager : MonoSingleton<EraManager>
     [Button]
     public void NextEra()
     {
-        if(currentEra<eraDatas.Count) currentEra++;
+        if(currentEra<eraDatas.Count-1) currentEra++;
         onEraChange.Invoke();
     }
 }

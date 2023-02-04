@@ -84,10 +84,10 @@ public class PlayerController : MonoBehaviour
 
         anim.SetHorizontalMovement(horizontal, vertical, rigid2D.velocity.y);
         //Debug.Log($"ve; {rigid2D.velocity.x}");
-        if (!newCollCheck.DropPlatform || !newCollCheck.OnSlip)
+        /*if (!newCollCheck.DropPlatform || !newCollCheck.OnSlip)
         {
             jumpController.JumpCall();
-        }
+        }*/
 
         //if (IsAttacking && newCollCheck.OnGround || newCollCheck.OnPlatform)
         //{
@@ -134,10 +134,11 @@ public class PlayerController : MonoBehaviour
         {
             rigid2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (rigid2D.velocity.y > 0 && !Input.GetButton("Jump"))
+        /*else if (rigid2D.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             rigid2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+        */
 
         /*if (vertical<0)
         {
@@ -147,14 +148,14 @@ public class PlayerController : MonoBehaviour
             }
         }*/
         //code pete sux here
-        if (horizontal == 0 && Input.GetButton("Jump"))
+        /*if (horizontal == 0 && Input.GetButton("Jump"))
         {
             rigid2D.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
         else
         {
             rigid2D.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-        }
+        }*/
     }
     
     public IEnumerator DisableMovement()
