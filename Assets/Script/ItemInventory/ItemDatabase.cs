@@ -17,4 +17,16 @@ public class ItemDatabase : MonoSingleton<ItemDatabase>
             Database.Add(idSO.itemType,idSO);
         }
     }
+    public ItemDataSO GetItemDataSO(ItemType itemType)
+    {
+        if (Database.ContainsKey(itemType))
+        {
+            return Database[itemType];
+        }
+        else
+        {
+            Debug.LogError("Item type not found in database: " + itemType);
+            return Database[ItemType.Stone];
+        }
+    }
 }
