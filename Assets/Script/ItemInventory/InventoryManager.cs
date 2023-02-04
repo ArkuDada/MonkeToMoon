@@ -26,6 +26,7 @@ public class InventoryManager : MonoSingleton<InventoryManager>
         }
 
         Inv[type] += count;
+        //TODO:: add item limit to 99
 
         UpdateInv();
     }

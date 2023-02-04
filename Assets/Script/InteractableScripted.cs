@@ -78,6 +78,7 @@ public class InteractableScripted : Interactable
             if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Craft)
             {
                 InventoryManager.Instance.AddItem(interactionList[currentInteraction].ResultItem, 1);
+                //TODO:: change to spawn item
 
             }
             else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Landmark)
