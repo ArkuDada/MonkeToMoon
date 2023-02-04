@@ -25,6 +25,10 @@ public class LifeManager : MonoSingleton<LifeManager>
             Debug.Log("Immortal: " + immortal);
             immortal = !immortal;
         }
+        if(transform.position.y<-50)
+        {
+            Die();
+        }
     }
     public void AgeCheck()
     {

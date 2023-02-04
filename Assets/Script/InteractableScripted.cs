@@ -46,7 +46,6 @@ private float interactTimer = 0;
 
     private void ChangeInteraction(int value)
     {
-        Debug.Log(value);
         currentInteraction += value;
             if (currentInteraction >= interactionList.Count)
             {

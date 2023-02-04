@@ -41,8 +41,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool isMainCharacter;
     public bool IsMainCharacter => isMainCharacter;
-    public bool IsAttacking;
-    public float attackCooldown;
     private bool canAttack;
 
 
@@ -50,7 +48,6 @@ public class PlayerController : MonoBehaviour
     {
         Instance = this;
         canAttack = true;
-        IsAttacking = false;
 
        
         newCollCheck.SetColliderSize();
@@ -158,12 +155,10 @@ public class PlayerController : MonoBehaviour
     public IEnumerator DisableMovement()
     {
         //canMove = false;
-        IsAttacking = true;
         canAttack = false;
         yield return new WaitForSeconds(0.75f);
         //canMove = true;
         canAttack = true;
-        IsAttacking = false;
     }
 
 }

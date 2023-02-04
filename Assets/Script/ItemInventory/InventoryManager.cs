@@ -60,6 +60,16 @@ public Dictionary<ItemType, int> GetInv() { return Inv; }
     {
         return Inv.ContainsKey(type);
     }
+    /*Darkness blacker than black and darker than dark,
+    I beseech thee, combine with my deep crimson.
+    The time of awakening cometh.
+    Justice, fallen upon the infallible boundary,
+    appear now as an intangible distortions!
+    I desire for my torrent of power a destructive force:
+    a destructive force without equal!
+    Return all creation to cinders,
+    and come frome the abyss!
+    Explosion!*/
     [Button]
     public void Kaboom()
     {
@@ -74,7 +84,7 @@ public Dictionary<ItemType, int> GetInv() { return Inv; }
             for (int i = 0; i < pair.Value; i++)
             {
                 GameObject pickup = Instantiate(GameManager.Instance.PickupPrefab, pos + 
-                    new Vector3(Random.Range(-1f, 1f), Random.Range(0, 1f))
+                    new Vector3(Random.Range(-3f, 3f), Random.Range(0, 3f))
                     , Quaternion.identity);
                 var pick = pickup.GetComponent<ItemPickup>();
                 pick.ItemType = pair.Key;

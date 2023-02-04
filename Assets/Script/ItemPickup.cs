@@ -24,11 +24,15 @@ public class ItemPickup : MonoBehaviour
     }
 
     private void Update()
-    {if(delay>0)delay-= Time.deltaTime;
+    {
+        if(delay>0)delay-= Time.deltaTime;
         if (isPlayerInRange && delay <= 0)
         {
             PickUp();
         }
+        
+        if(transform.position.y < -50)
+            PickUp();
     }
 
 
