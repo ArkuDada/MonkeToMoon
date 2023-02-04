@@ -10,6 +10,30 @@ public class AttackController : MonoBehaviour
     public Vector2 direction = Vector2.right;
     public Interactable interactable;
 
+    public void SetInteractable(Interactable inter)
+    {
+        if (interactable != inter)
+        {
+             if(interactable)
+             {
+                 interactable.IsInRange = false;
+                 interactable.IsPlayerInRange?.Invoke(false);
+             }
+             interactable = inter;
+             interactable.IsInRange = true; 
+             interactable.IsPlayerInRange?.Invoke(true);
+        }
+       
+    }
+    public void RemoveInteractable(Interactable inter)
+    {
+        if (interactable == inter)
+        {
+            interactable = null;
+        inter.IsInRange = false;
+        inter.IsPlayerInRange?.Invoke(false);
+        }
+    }
     public void Fire()
     {
         if(interactable) interactable.Interact();
