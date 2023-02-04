@@ -34,6 +34,7 @@ public class CameraManager : MonoSingleton<CameraManager>
     {
         transform.position = mainCamera.Follow.position;
         mainCamera.Follow = transform;
+        FadeUI.Instance.
         StartCoroutine(PanUpCoroutine());
     }
     float panTimer;
