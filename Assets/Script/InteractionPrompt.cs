@@ -44,9 +44,8 @@ public class InteractionPrompt : MonoBehaviour
             PromptItemIcon icon = iconObject.GetComponent<PromptItemIcon>();
             if(icon != null)
             {
-                icon.SetIcon(requirement.Item, requirement.Amount , isResource ? (int)requirement.Droprate : -1);
-                icon.IsItemFound(InventoryManager.Instance.FoundItem(requirement.Item));
-                icon.IsInteractable(canInteract);
+                icon.SetIcon(requirement.Item, requirement.Amount , 
+                    isResource ? (int)requirement.Droprate : -1, InventoryManager.Instance.FoundItem(requirement.Item), canInteract);
             }
 
             Icons.Add(icon);

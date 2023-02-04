@@ -25,6 +25,10 @@ public class LifeManager : MonoSingleton<LifeManager>
             Debug.Log("Immortal: " + immortal);
             immortal = !immortal;
         }
+        if(transform.position.y<-50)
+        {
+            Die();
+        }
     }
     public void AgeCheck()
     {
@@ -44,6 +48,7 @@ public class LifeManager : MonoSingleton<LifeManager>
         birthYear = em.year;
         var body = Instantiate(deadBody, PlayerController.Instance.transform.position, Quaternion.identity);
         EraManager.Instance.freezeTime = true;
+        InventoryManager.Instance.Kaboom();
         yield return new WaitForSeconds(2);
         Destroy(body);
         PlayerController.Instance.transform.position = spawnPoint.position;
