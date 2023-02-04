@@ -21,7 +21,8 @@ public class InventoryManager : MonoSingleton<InventoryManager>
         if(!Inv.ContainsKey(type))
         {
             Inv.Add(type,0);
-            Inv = Inv.OrderBy(pair=>pair.Key).ToDictionary(pair=>pair.Key,pair=>pair.Value);
+            
+            //Inv = Inv.OrderBy(pair=>pair.Key).ToDictionary(pair=>pair.Key,pair=>pair.Value);
         }
 
         Inv[type] += count;

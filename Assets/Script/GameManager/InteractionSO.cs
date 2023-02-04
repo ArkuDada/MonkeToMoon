@@ -13,7 +13,7 @@ public class InteractionSO : ScriptableObject
 
     public InteractionResultType InteractionResultType = InteractionResultType.Craft;
     
-    [ShowIf("InteractionResultType", InteractionResultType.Craft)]
+    [ShowIf("InteractionResultType", InteractionResultType.Craft )]
     public ItemType ResultItem;
     
     [ShowIf("InteractionResultType", InteractionResultType.Landmark)]
@@ -23,8 +23,9 @@ public class InteractionSO : ScriptableObject
     
     [ShowIf("InteractionResultType", InteractionResultType.Victory)]
     public VictoryType victoryType;
-  
-    
+
+    [ShowIf("InteractionResultType", InteractionResultType.Resource)]
+    public float CooldownTime = 0.0f;
 }
 
 [Serializable]
@@ -37,17 +38,19 @@ public class InteractionRequirement
 }
 
 [Serializable]
-public struct Requirement
+public class Requirement
 {
     public ItemType Item;
     public int Amount;
+    public float Droprate = 100.0f;
 }
 
 public enum InteractionResultType
 {
     Craft,
     Landmark,
-    Victory
+    Victory,
+    Resource
 }
 
 public enum LandmarkType

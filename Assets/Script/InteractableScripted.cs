@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class InteractableScripted : Interactable
 {
-    
+
     public List<InteractionSO> interactionList;
     protected int currentInteraction;
-    
+
     private bool IsCrafting => interactionList[currentInteraction].InteractionResultType == InteractionResultType.Craft;
 
-    
+
     public GameObject prompt;
     // Start is called before the first frame update
 
@@ -27,29 +27,49 @@ public class InteractableScripted : Interactable
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if(scroll > 0 && prompt.activeSelf)
         {
+            ChangeInteraction(1);
+        }
+        else if(scroll < 0 && prompt.activeSelf)
+        {
+            ChangeInteraction(-1);
+        }
+    }
+
+    private void ChangeInteraction(int value)
+    {
+        if(value == 1)
+        {
             currentInteraction++;
             if(currentInteraction >= interactionList.Count)
             {
                 currentInteraction = 0;
             }
-            prompt.GetComponent<InteractionPrompt>().SetPromptDetail(interactionList[currentInteraction], TryCraft());
+            prompt.GetComponent<InteractionPrompt>()
+                .SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract());
             FreezeTime(true);
         }
-        else if(scroll < 0 && prompt.activeSelf)
+        else if(value == -1)
         {
             currentInteraction--;
             if(currentInteraction < 0)
             {
                 currentInteraction = interactionList.Count - 1;
             }
-            prompt.GetComponent<InteractionPrompt>().SetPromptDetail(interactionList[currentInteraction], TryCraft());
+            prompt.GetComponent<InteractionPrompt>()
+                .SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract());
+            FreezeTime(true);
+        }else if(value == 0)
+        {
+            currentInteraction = 0;
+            prompt.GetComponent<InteractionPrompt>()
+                .SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract());
             FreezeTime(true);
         }
-    }
 
+    }
     public override void Interact()
     {
-        if(TryCraft())
+        if(CanCompleteInteract())
         {
             foreach(var r in interactionList[currentInteraction].Requirement.Requirements)
             {
@@ -62,11 +82,15 @@ public class InteractableScripted : Interactable
             }
             else
             {
+                
+                
+                interactionList.RemoveAt(currentInteraction);
+                ChangeInteraction(0);
                 //upgrade landmark
             }
         }
     }
-    public bool TryCraft()
+    public bool CanCompleteInteract()
     {
         if(interactionList[currentInteraction].Requirement.Count > 0)
         {
@@ -84,7 +108,7 @@ public class InteractableScripted : Interactable
 
     protected void ShowPrompt(bool isActive)
     {
-        if(prompt.activeSelf == isActive)
+        if(prompt.activeSelf == isActive || interactionList.Count == 0)
         {
             return;
         }
@@ -92,12 +116,17 @@ public class InteractableScripted : Interactable
         prompt.SetActive(isActive);
         if(isActive)
         {
-            prompt.GetComponent<InteractionPrompt>().SetPromptDetail(interactionList[currentInteraction], TryCraft());
+            prompt.GetComponent<InteractionPrompt>()
+                .SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract());
         }
     }
 
     protected void FreezeTime(bool isFreeze)
     {
+        if(interactionList.Count == 0)
+        {
+            return;
+        }
         EraManager.Instance.freezeTime = isFreeze && IsCrafting;
     }
 }

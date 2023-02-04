@@ -12,14 +12,10 @@ public class Interactable : MonoBehaviour
     {
     }
 
-    public virtual void Interact()
-    {
-
-
-    }
+    protected bool IsInteractable = true;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if(IsInteractable && other.gameObject.CompareTag("Player"))
         {
             PlayerController.Instance.attackController.interactable = this;
             IsPlayerInRange?.Invoke(true);
@@ -28,7 +24,7 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if(IsInteractable && other.gameObject.CompareTag("Player"))
         {
             if(PlayerController.Instance.attackController.interactable == this)
                 PlayerController.Instance.attackController.interactable = null;
@@ -36,4 +32,8 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    public virtual void Interact()
+    {
+        throw new NotImplementedException();
+    }
 }

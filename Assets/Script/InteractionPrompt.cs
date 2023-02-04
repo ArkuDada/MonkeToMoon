@@ -27,7 +27,7 @@ public class InteractionPrompt : MonoBehaviour
         }
 
         int count = interactionDetail.Requirement.Requirements.Count;
-        float offset = ((iconSize * count) + (iconPadding * (count - 1))) / 2.0f;
+        float offset = (((iconSize * count) + (iconPadding * (count - 1))) / 2.0f) - iconPadding;
         foreach(var requirement in interactionDetail.Requirement.Requirements)
         {
             GameObject iconObject = Instantiate(iconPrefab, transform);
