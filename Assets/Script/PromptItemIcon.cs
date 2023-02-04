@@ -6,19 +6,24 @@ using UnityEngine;
 
 public class PromptItemIcon : MonoBehaviour
 {
-    [SerializeField] private GameObject textObject;
     private SpriteRenderer sr;
-    private TextMeshPro text;
+    [SerializeField] private TextMeshPro textAmount;
+    [SerializeField] private TextMeshPro textPercent;
 
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        text = textObject.GetComponentInChildren<TextMeshPro>();
+
     }
-    public void SetIcon(ItemType itemType, int Count)
+    public void SetIcon(ItemType itemType, int Count,int Percent = -1)
     {
+        bool showPersent =( Percent != -1 && Percent < 100.0f);
         sr.sprite = ItemDatabase.Instance?.Database[itemType].sprite;
-        text.text = $"{Count}";
+        textAmount.text = $"{Count}";
+        
+        textPercent.gameObject.SetActive(showPersent);
+        textPercent.text = $"{Percent}{(showPersent ? "%" : "" )}";
+
     }
 
     public void IsItemFound(bool isFound)

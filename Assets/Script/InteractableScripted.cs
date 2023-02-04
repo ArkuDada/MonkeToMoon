@@ -82,8 +82,6 @@ public class InteractableScripted : Interactable
             }
             else
             {
-                
-                
                 interactionList.RemoveAt(currentInteraction);
                 ChangeInteraction(0);
                 //upgrade landmark
@@ -92,6 +90,11 @@ public class InteractableScripted : Interactable
     }
     public bool CanCompleteInteract()
     {
+        if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Resource )
+        {
+            return true;
+        }
+        
         if(interactionList[currentInteraction].Requirement.Count > 0)
         {
             foreach(var r in interactionList[currentInteraction].Requirement.Requirements)

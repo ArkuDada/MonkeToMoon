@@ -9,8 +9,10 @@ public struct ParallaxObject
     public float parallaxFactor;
 }
 
-public class ParallaxController : MonoSingleton<ParallaxController>
+public class ParallaxController : MonoBehaviour
 {
+    public static ParallaxController Instance;
+    
     [SerializeField]
     private List<ParallaxObject> parallaxObjects;
 
@@ -20,8 +22,13 @@ public class ParallaxController : MonoSingleton<ParallaxController>
     private Transform cameraTransform;
     private Vector3 previousCameraPosition;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
+        
         ResetCameraPosition();
     }
     
