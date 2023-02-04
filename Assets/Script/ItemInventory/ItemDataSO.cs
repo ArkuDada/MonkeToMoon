@@ -9,6 +9,9 @@ public class ItemDataSO : ScriptableObject
 }
 
 public enum ItemType{
+    NormalItem = 0,
     Wood,
     Stone,
+    KeyItem = 99,
+    Tool,
 }
