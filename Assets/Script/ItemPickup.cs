@@ -8,9 +8,11 @@ public class ItemPickup : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField][HideInInspector] private ItemType _type;
     public ItemType ItemType { get => _type; set => SetType(value); }
+    public float delay;
     private void Start()
     {
         Spawn();
+        delay = 0.5f;
     }
     [Button]
 
@@ -21,7 +23,14 @@ public class ItemPickup : MonoBehaviour
          _type = type;
     }
 
-    
+    private void Update()
+    {if(delay>0)delay-= Time.deltaTime;
+        if (isPlayerInRange && delay <= 0)
+        {
+            PickUp();
+        }
+    }
+
 
     public void Spawn()
     {
@@ -30,14 +39,26 @@ public class ItemPickup : MonoBehaviour
         Vector2 flyDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         rb.AddForce(flyDirection * flyForce, ForceMode2D.Impulse);
     }
-
+bool isPlayerInRange = false;
+    
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            //Debug.Log($"Pickup {ItemType}");
-           InventoryManager.Instance.AddItem(ItemType);
-            Destroy(gameObject);
+            isPlayerInRange = true;
         }
+    }
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+        }
+    }
+    void PickUp()
+    {
+        //Debug.Log($"Pickup {ItemType}");
+        InventoryManager.Instance.AddItem(ItemType);
+        Destroy(gameObject);
     }
 }

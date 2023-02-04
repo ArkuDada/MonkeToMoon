@@ -11,6 +11,12 @@ public class InventoryManager : MonoSingleton<InventoryManager>
     [HideInInspector]
     public UnityEvent<Dictionary<ItemType, int>> OnInvUpdate = new UnityEvent<Dictionary<ItemType, int>>();
 
+    protected override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void UpdateInv()
     {
         OnInvUpdate.Invoke(Inv);
