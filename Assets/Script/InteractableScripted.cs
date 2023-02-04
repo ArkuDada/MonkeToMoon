@@ -62,7 +62,31 @@ private float interactTimer = 0;
     }
     public override void Interact()
     {
-        if(CanCompleteInteract())
+        if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Resource)
+        {
+            if(interactTimer > 0)
+            {
+                return;
+            }
+                         
+            foreach(var drop in interactionList[currentInteraction].Requirement.Requirements)
+            {
+                if(Random.Range(0.0f, 100.0f)
+                   <= drop.Droprate)
+                {
+                    for (int i = 0; i < drop.Amount; i++)
+                    {
+                        GameObject pickup = Instantiate(GameManager.Instance.PickupPrefab, transform.position, Quaternion.identity);
+                        var pick = pickup.GetComponent<ItemPickup>();
+                        pick.ItemType = drop.Item;
+                    }
+             
+                }
+            }
+             
+            interactTimer = interactionList[currentInteraction].CooldownTime;
+        }
+        else if(CanCompleteInteract())
         {
             foreach(var r in interactionList[currentInteraction].Requirement.Requirements)
             {
@@ -74,7 +98,6 @@ private float interactTimer = 0;
                 var pick = pickup.GetComponent<ItemPickup>();
                 pick.ItemType = interactionList[currentInteraction].ResultItem;
                 //TODO:: change to spawn item
-
             }
             else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Landmark)
             {
@@ -88,32 +111,9 @@ private float interactTimer = 0;
             }
             else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Victory)
             {
-                
-            }else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Resource)
-                     {
-                         if(interactTimer > 0)
-                         {
-                             return;
-                         }
-                         
-                         foreach(var drop in interactionList[currentInteraction].Requirement.Requirements)
-                         {
-                             if(Random.Range(0.0f, 100.0f)
-                                <= drop.Droprate)
-                             {
-                                 for (int i = 0; i < drop.Amount; i++)
-                                 {
-                                     GameObject pickup = Instantiate(GameManager.Instance.PickupPrefab, transform.position, Quaternion.identity);
-                                     var pick = pickup.GetComponent<ItemPickup>();
-                                     pick.ItemType = drop.Item;
-                                 }
-             
-                             }
-                         }
-             
-                         interactTimer = interactionList[currentInteraction].CooldownTime;
-                     }
-           
+                GameManager.Instance.GameVictory();
+            }
+
         }
     }
     public bool CanCompleteInteract()

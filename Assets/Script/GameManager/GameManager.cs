@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 public class GameManager : MonoSingleton<GameManager>
 {
     [FormerlySerializedAs("landMarkSprites")] [SerializeField] private LandmarkStage[] landMark;
+    public GameObject VictoryObject;
     public GameObject PickupPrefab;
     public void Start()
     {
@@ -18,6 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
                 landMark[i].objects[j].SetActive(false);
             }
         }
+        VictoryObject.SetActive(false);
     }
     public void CompleteLandMark(LandmarkType type)
     {
@@ -47,6 +49,17 @@ public class GameManager : MonoSingleton<GameManager>
             Debug.Log("All Landmark Completed");
             EraManager.Instance.NextEra();
         }
+    }
+    public void GameVictory()
+    {
+        StartCoroutine(VictoryCoroutine());
+    }
+    IEnumerator VictoryCoroutine()
+    {
+        VictoryObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        Debug.Log("Game Victory");
+        CameraManager.Instance.PanUp();
     }
 }
 
