@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3b15a455aeb83458375a830be5e61d, type: 3}
   m_Name: BronzeOre
   m_EditorClassIdentifier: 
-  itemType: 11
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  itemType: 106
+  sprite: {fileID: 21300000, guid: 7901fea3c6cc12f44915e91686609598, type: 3}

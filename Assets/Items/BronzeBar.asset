@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3b15a455aeb83458375a830be5e61d, type: 3}
   m_Name: BronzeBar
   m_EditorClassIdentifier: 
-  itemType: 12
+  itemType: 107
   sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}

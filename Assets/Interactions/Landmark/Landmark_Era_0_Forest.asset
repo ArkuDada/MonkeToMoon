@@ -11,15 +11,15 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3bd712b1062830418031588d482c25a, type: 3}
   m_Name: Landmark_Era_0_Forest
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   Requirement:
     Requirements:
-    - Item: 102
+    - Item: 105
       Amount: 2
-      Droprate: 1
+      Droprate: 100
   InteractionResultType: 1
   ResultItem: 0
   landmarkType: 2
-  era: 0
+  era: 1
   victoryType: 0
   CooldownTime: 0
