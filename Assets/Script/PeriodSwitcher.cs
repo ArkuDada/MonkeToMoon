@@ -8,14 +8,14 @@ public class PeriodSwitcher : MonoBehaviour
     public List<EraInfo> eraInfos;
     void Start()
     {
-        PeriodManager.instance.onEraChange.AddListener(UpdateEra);
+        PeriodManager.Instance.onEraChange.AddListener(UpdateEra);
     }
 
     public void UpdateEra()
     {
         foreach (EraInfo eraInfo in eraInfos)
         {
-            if (eraInfo.era == PeriodManager.instance.currentEra)
+            if (eraInfo.era == PeriodManager.Instance.currentEra)
             {
                 foreach (GameObject obj in eraInfo.objects)
                 {

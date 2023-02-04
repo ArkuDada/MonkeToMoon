@@ -4,23 +4,17 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PeriodManager : MonoBehaviour
+public class PeriodManager : MonoSingleton<PeriodManager>
 {
-    public static PeriodManager instance;
     public int year;
+    float timer;
     public float yearDuration = 15;
     public Era currentEra;
     
     public UnityEvent onEraChange = new UnityEvent();
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
     private void Start()
     {
-        StartCoroutine(YearCounter());
     }
 
     public void ChangeEra(Era era)
@@ -30,19 +24,14 @@ public class PeriodManager : MonoBehaviour
     }
     public void Update()
     {
-        
-    }
-
-    private IEnumerator YearCounter()
-    {
-        while (true)
+        timer += Time.deltaTime;
+        if (timer > yearDuration)
         {
-            yield return  new WaitForSeconds(yearDuration);
+            timer = 0;
             year += 1;
-            yield return null;
         }
     }
-
+    
     [Button]
     public void NextEra()
     {

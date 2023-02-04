@@ -2317,6 +2317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8072489003605212699}
   - component: {fileID: 5427829276711959226}
+  - component: {fileID: 2626689824998591838}
   - component: {fileID: 7692354671593001716}
   m_Layer: 5
   m_Name: YearClock
@@ -2356,6 +2357,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4142585756952091732}
   m_CullTransparentMesh: 1
+--- !u!114 &2626689824998591838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142585756952091732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71511fe4607fc614fa129fffbb7aa35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clockHand: {fileID: 1745036643657460336}
+  clockText: {fileID: 3392101681003997774}
 --- !u!114 &7692354671593001716
 MonoBehaviour:
   m_ObjectHideFlags: 0
