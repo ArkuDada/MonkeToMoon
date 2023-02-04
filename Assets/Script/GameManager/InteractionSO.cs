@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 
 
@@ -9,11 +10,21 @@ public class InteractionSO : ScriptableObject
 {
     [SerializeField]
     public InteractionRequirement Requirement;
+
+    public InteractionResultType InteractionResultType = InteractionResultType.Craft;
+    
+    [ShowIf("InteractionResultType", InteractionResultType.Craft)]
+    public ItemType ResultItem;
+    
+    [ShowIf("InteractionResultType", InteractionResultType.Landmark)]
+    public LandmarkType landmarkType;
+    [ShowIf("InteractionResultType", InteractionResultType.Landmark)]
     public Era era;
     
-    public bool isResultItem = false;
-    public ItemType ResultItem;
-    public int ResultAmount = 1;
+    [ShowIf("InteractionResultType", InteractionResultType.Victory)]
+    public VictoryType victoryType;
+  
+    
 }
 
 [Serializable]
@@ -30,4 +41,21 @@ public struct Requirement
 {
     public ItemType Item;
     public int Amount;
+}
+
+public enum InteractionResultType
+{
+    Craft,
+    Landmark,
+    Victory
+}
+
+public enum LandmarkType
+{
+    Spawn,River,Forest,Mountain,Mine
+}
+
+public enum VictoryType
+{
+    Stair,Ladder,Balloon,Rocket,Portal
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,13 @@ using UnityEngine;
 public class InteractableScripted : Interactable
 {
     public InteractionSO interactionSO;
+    public GameObject prompt;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        IsPlayerInRange += ShowPrompt;
+    }
     public override void Interact()
     {
         if(TryCraft())
@@ -14,9 +21,9 @@ public class InteractableScripted : Interactable
             {
                 InventoryManager.Instance.RemoveItem(r.Item, r.Amount);
             }
-            if(interactionSO.isResultItem)
+            if(interactionSO.InteractionResultType == InteractionResultType.Craft)
             {
-                InventoryManager.Instance.AddItem(interactionSO.ResultItem, interactionSO.ResultAmount);
+                InventoryManager.Instance.AddItem(interactionSO.ResultItem, 1);
 
             }
             else
@@ -40,4 +47,18 @@ public class InteractableScripted : Interactable
              }
              return true;
          }
+
+    protected void ShowPrompt(bool isActive)
+    {
+        if(prompt.activeSelf == isActive)
+        {
+            return;
+        }
+        
+        prompt.SetActive(isActive);
+        if(isActive)
+        {
+            prompt.GetComponent<InteractionPrompt>().SetPromptDetail(interactionSO,TryCraft());
+        }
+    }
 }

@@ -6,12 +6,20 @@ public class ItemPickup : MonoBehaviour
     public float popUpForce = 10f;
     public float flyForce = 5f;
     private Rigidbody2D rb;
-    public ItemType itemType;
+    private ItemType _type;
+    public ItemType ItemType { get => _type; set => SetType(value); }
     private void Start()
     {
         Spawn();
     }
-[Button]
+    [Button]
+
+    private void SetType(ItemType type)
+    {
+         ItemDataSO data =ItemDatabase.Instance.Database[type];
+         GetComponent<SpriteRenderer>().sprite = data.sprite;
+         _type = type;
+    }
     public void Spawn()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,9 +32,9 @@ public class ItemPickup : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log($"Pickup {itemType}");
+            Debug.Log($"Pickup {ItemType}");
             Destroy(gameObject);
-           InventoryManager.Instance.AddItem(itemType);
+           InventoryManager.Instance.AddItem(ItemType);
         }
     }
 }

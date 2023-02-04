@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Landmark : Interactable
+public class Landmark : InteractableScripted
 {
 
     public ItemType itemType;
@@ -14,6 +14,6 @@ public class Landmark : Interactable
     {
         GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
         var pick = pickup.GetComponent<ItemPickup>();
-        pick.itemType = itemType;
+        pick.ItemType = itemType;
     }
 }

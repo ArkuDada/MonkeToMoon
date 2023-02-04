@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: InteractionSO
   m_EditorClassIdentifier: 
   Requirement:
-    Requirements: []
-  era: 0
-  isResultItem: 0
-  ResultItem: 0
-  ResultAmount: 0
+    Requirements:
+    - Item: 17
+      Amount: 3
+  InteractionResultType: 0
+  ResultItem: 2
+  landmarkType: 3
+  era: 4
+  victoryType: 4
