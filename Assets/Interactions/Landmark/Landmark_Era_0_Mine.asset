@@ -20,6 +20,9 @@ MonoBehaviour:
     - Item: 2
       Amount: 5
       Droprate: 100
+    - Item: 105
+      Amount: 2
+      Droprate: 100
   InteractionResultType: 1
   ResultItem: 0
   landmarkType: 4

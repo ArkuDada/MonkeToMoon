@@ -12,11 +12,13 @@ public class EdgeTeleporter : MonoBehaviour
         
         if (col.gameObject.CompareTag("Player"))
         {
-            col.gameObject.transform.position =
-                new Vector3(otherTeleporter.Pos.x + otherTeleporter.offset.x, col.gameObject.transform.position.y,
-                    otherTeleporter.Pos.z + otherTeleporter.offset.z);
+            Vector3 oldPos = col.gameObject.transform.position;
             
-            CameraManager.Instance.TeleportCamera(col.gameObject.transform.position);
+            Vector3 newPos = new Vector3(otherTeleporter.Pos.x + otherTeleporter.offset.x, col.gameObject.transform.position.y,
+                otherTeleporter.Pos.z + otherTeleporter.offset.z);
+            col.gameObject.transform.position = newPos;
+
+            CameraManager.Instance.TeleportCamera(newPos - oldPos);
         }
     }
 }

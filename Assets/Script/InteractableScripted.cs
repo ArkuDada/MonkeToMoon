@@ -21,10 +21,10 @@ public class InteractableScripted : Interactable
         IsPlayerInRange += ShowPrompt;
         IsPlayerInRange += FreezeTime;
     }
-
     void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
+
         if(scroll > 0 && prompt.activeSelf)
         {
             ChangeInteraction(1);
@@ -37,6 +37,7 @@ public class InteractableScripted : Interactable
 
     private void ChangeInteraction(int value)
     {
+        Debug.Log(value);
         currentInteraction += value;
             if (currentInteraction >= interactionList.Count)
             {
@@ -71,9 +72,11 @@ public class InteractableScripted : Interactable
             {
                 GameManager.Instance.CompleteLandMark(interactionList[currentInteraction].landmarkType);
                 interactionList.RemoveAt(currentInteraction);
-                
-                
-                Destroy(gameObject);
+
+                if(interactionList.Count == 0)
+                {
+                    Destroy(gameObject);
+                }
             }
             else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Victory)
             {

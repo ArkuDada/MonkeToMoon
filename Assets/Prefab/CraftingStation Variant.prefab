@@ -61,7 +61,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ff67d553a27cf0d468620e38b113647b, type: 2}
     - target: {fileID: 2945552628511866696, guid: 809187058595fac4c918414afcbf2bc4, type: 3}
       propertyPath: m_Name
-      value: CraftingStation
+      value: CraftingStation Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945552628511866698, guid: 809187058595fac4c918414afcbf2bc4, type: 3}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809187058595fac4c918414afcbf2bc4, type: 3}

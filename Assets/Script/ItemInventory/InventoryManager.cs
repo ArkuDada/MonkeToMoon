@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class InventoryManager : MonoSingleton<InventoryManager>
 {
+    public bool isDebug = false;
+    
     private Dictionary<ItemType, int> Inv = new Dictionary<ItemType, int>();
 public Dictionary<ItemType, int> GetInv() { return Inv; }
     [HideInInspector]
@@ -32,7 +34,7 @@ public Dictionary<ItemType, int> GetInv() { return Inv; }
         }
 
         Inv[type] += count;
-        //TODO:: add item limit to 99
+        Inv[type] = Mathf.Clamp(Inv[type],0,99);
 
         UpdateInv();
     }
@@ -40,10 +42,15 @@ public Dictionary<ItemType, int> GetInv() { return Inv; }
     
     public void RemoveItem(ItemType type, int count)
     {
+        if(isDebug) return;
+
         if(HaveItems(type,count))
         {
             Inv[type] -= count;
-
+            if( Inv[type]  <= 0)
+            {
+                Inv[type] = 0;
+            }
             UpdateInv();
         }
     }
@@ -55,6 +62,6 @@ public Dictionary<ItemType, int> GetInv() { return Inv; }
     
     public bool HaveItems(ItemType type, int count)
     {
-        return Inv.ContainsKey(type) && Inv[type] >= count;
+        return isDebug || (Inv.ContainsKey(type) && Inv[type] >= count);
     }
 }
