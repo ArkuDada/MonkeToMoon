@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0985e254aa9d8145a44e3b1ace55071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionSO: {fileID: 11400000, guid: cf58088d713d50f428afbfa803dc5bbd, type: 2}
+  interactionSO: {fileID: 11400000, guid: 6ad0466e2a2dd5348a8876aca6d1eb3e, type: 2}
   prompt: {fileID: 8622604222336023957}
   itemType: 2
   pickupPrefab: {fileID: 4777755363018415992, guid: 04ce52e6922c8994badc32f2bd909e3f, type: 3}

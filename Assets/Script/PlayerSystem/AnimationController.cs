@@ -13,23 +13,19 @@ public class AnimationController : MonoBehaviour
     public SpriteRenderer SpriteRen => spriteRen;
 
     private void Update()
-    {/*
+    {
         anim.SetBool("onGround", newCollCheck.OnGround);
-        anim.SetBool("onPlatform", newCollCheck.OnPlatform);
-        anim.SetBool("canMove", playerController.CanMove);
-        anim.SetBool("isAttacking", playerController.IsAttacking);*/
     }
 
     public void SetHorizontalMovement(float x, float y, float yVel)
-    {/*
-        anim.SetFloat("HorizontalAxis", x);
-        anim.SetFloat("VerticalAxis", y);
-        anim.SetFloat("VerticalVelocity", yVel);*/
+    {
+        anim.SetFloat("HorizontalAxis",Mathf.Abs(x));
+        anim.SetFloat("VerticalAxis", Mathf.Abs(y));
     }
 
     public void SetTrigger(string trigger)
-    {/*
-        anim.SetTrigger(trigger);*/
+    {
+        anim.SetTrigger(trigger);
     }
 
     public void Flip(int side)

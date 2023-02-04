@@ -43,6 +43,5 @@ public class LifeManager : MonoSingleton<LifeManager>
         PlayerController.Instance.transform.position = spawnPoint.position;
         PlayerController.Instance.gameObject.SetActive(true);
         EraManager.Instance.freezeTime = false;
-        
     }
 }
