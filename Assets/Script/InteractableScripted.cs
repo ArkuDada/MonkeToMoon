@@ -80,12 +80,21 @@ public class InteractableScripted : Interactable
                 InventoryManager.Instance.AddItem(interactionList[currentInteraction].ResultItem, 1);
 
             }
-            else
+            else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Landmark)
             {
                 interactionList.RemoveAt(currentInteraction);
-                ChangeInteraction(0);
+                
                 //upgrade landmark
+                //DO LANDMARK STUFF
+                //GAMEMANAGER PROGRESS COUNT ++
+                
+                Destroy(gameObject);
             }
+            else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Victory)
+            {
+                
+            }
+           
         }
     }
     public bool CanCompleteInteract()
