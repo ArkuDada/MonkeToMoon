@@ -14,6 +14,7 @@ public class LifeManager : MonoSingleton<LifeManager>
     void Start()
     {
         PlayerController.Instance.transform.position = spawnPoint.position;
+        ParallaxController.Instance.ResetCameraPosition();
     }
 
     // Update is called once per frame
