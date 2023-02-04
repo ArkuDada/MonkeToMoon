@@ -5,25 +5,59 @@ using UnityEngine;
 
 public class InteractableScripted : Interactable
 {
-    public InteractionSO interactionSO;
+    
+    public List<InteractionSO> interactionList;
+    protected int currentInteraction;
+    
+    private bool IsCrafting => interactionList[currentInteraction].InteractionResultType == InteractionResultType.Craft;
+
+    
     public GameObject prompt;
     // Start is called before the first frame update
 
     private void Awake()
     {
+
         IsPlayerInRange += ShowPrompt;
+        IsPlayerInRange += FreezeTime;
     }
+
+    void Update()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if(scroll > 0 && prompt.activeSelf)
+        {
+            currentInteraction++;
+            if(currentInteraction >= interactionList.Count)
+            {
+                currentInteraction = 0;
+            }
+            prompt.GetComponent<InteractionPrompt>().SetPromptDetail(interactionList[currentInteraction], TryCraft());
+            FreezeTime(true);
+        }
+        else if(scroll < 0 && prompt.activeSelf)
+        {
+            currentInteraction--;
+            if(currentInteraction < 0)
+            {
+                currentInteraction = interactionList.Count - 1;
+            }
+            prompt.GetComponent<InteractionPrompt>().SetPromptDetail(interactionList[currentInteraction], TryCraft());
+            FreezeTime(true);
+        }
+    }
+
     public override void Interact()
     {
         if(TryCraft())
         {
-            foreach (var r in interactionSO.Requirement.Requirements)
+            foreach(var r in interactionList[currentInteraction].Requirement.Requirements)
             {
                 InventoryManager.Instance.RemoveItem(r.Item, r.Amount);
             }
-            if(interactionSO.InteractionResultType == InteractionResultType.Craft)
+            if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Craft)
             {
-                InventoryManager.Instance.AddItem(interactionSO.ResultItem, 1);
+                InventoryManager.Instance.AddItem(interactionList[currentInteraction].ResultItem, 1);
 
             }
             else
@@ -33,20 +67,20 @@ public class InteractableScripted : Interactable
         }
     }
     public bool TryCraft()
-         {
-             if(interactionSO.Requirement.Count > 0)
-             {
-                 foreach(var r in interactionSO.Requirement.Requirements)
-                 {
-                     if (!InventoryManager.Instance.HaveItems(r.Item, r.Amount))
-                     {
-                         return false;
-                     }
-                 }
-                 
-             }
-             return true;
-         }
+    {
+        if(interactionList[currentInteraction].Requirement.Count > 0)
+        {
+            foreach(var r in interactionList[currentInteraction].Requirement.Requirements)
+            {
+                if(!InventoryManager.Instance.HaveItems(r.Item, r.Amount))
+                {
+                    return false;
+                }
+            }
+
+        }
+        return true;
+    }
 
     protected void ShowPrompt(bool isActive)
     {
@@ -54,11 +88,16 @@ public class InteractableScripted : Interactable
         {
             return;
         }
-        
+
         prompt.SetActive(isActive);
         if(isActive)
         {
-            prompt.GetComponent<InteractionPrompt>().SetPromptDetail(interactionSO,TryCraft());
+            prompt.GetComponent<InteractionPrompt>().SetPromptDetail(interactionList[currentInteraction], TryCraft());
         }
+    }
+
+    protected void FreezeTime(bool isFreeze)
+    {
+        EraManager.Instance.freezeTime = isFreeze && IsCrafting;
     }
 }
