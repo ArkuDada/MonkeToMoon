@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GoldBar
   m_EditorClassIdentifier: 
   itemType: 110
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  sprite: {fileID: 21300000, guid: f1026af0bc6432d4f88e168b42251030, type: 3}

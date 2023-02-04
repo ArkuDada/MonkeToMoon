@@ -15,14 +15,17 @@ MonoBehaviour:
   Requirement:
     Requirements:
     - Item: 1
-      Amount: 5
-      Droprate: 60
-    - Item: 3
-      Amount: 2
-      Droprate: 15
-    - Item: 4
-      Amount: 1
+      Amount: 10
       Droprate: 30
+    - Item: 3
+      Amount: 5
+      Droprate: 30
+    - Item: 4
+      Amount: 5
+      Droprate: 30
+    - Item: 5
+      Amount: 5
+      Droprate: 20
   InteractionResultType: 3
   ResultItem: 0
   landmarkType: 0

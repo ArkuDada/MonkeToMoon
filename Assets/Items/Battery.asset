@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Battery
   m_EditorClassIdentifier: 
   itemType: 112
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  sprite: {fileID: 21300000, guid: a4801d5dbd2f69741a0d598ff5b421bb, type: 3}

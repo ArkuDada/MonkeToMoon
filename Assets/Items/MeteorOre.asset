@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MeteorOre
   m_EditorClassIdentifier: 
   itemType: 1004
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  sprite: {fileID: 21300000, guid: 3f27905684fccc845814666b325e2ac6, type: 3}

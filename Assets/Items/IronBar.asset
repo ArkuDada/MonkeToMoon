@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: IronBar
   m_EditorClassIdentifier: 
   itemType: 109
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  sprite: {fileID: 21300000, guid: c5fb989de71a6d04b92c6fc086c8d036, type: 3}

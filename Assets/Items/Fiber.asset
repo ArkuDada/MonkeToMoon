@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Fiber
   m_EditorClassIdentifier: 
   itemType: 3
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  sprite: {fileID: 21300000, guid: 88ec426c3df88f143900c90c6606735f, type: 3}

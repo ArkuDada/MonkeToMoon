@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BronzeOre
   m_EditorClassIdentifier: 
   itemType: 106
-  sprite: {fileID: 21300000, guid: 7901fea3c6cc12f44915e91686609598, type: 3}
+  sprite: {fileID: 21300000, guid: 07a983a2213274342b1af7d7ea80de3e, type: 3}

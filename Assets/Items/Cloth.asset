@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Cloth
   m_EditorClassIdentifier: 
   itemType: 101
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  sprite: {fileID: 21300000, guid: ff47bb39f40661a4fab101fcd4505a59, type: 3}

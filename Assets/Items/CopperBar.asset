@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CopperBar
   m_EditorClassIdentifier: 
   itemType: 108
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  sprite: {fileID: 21300000, guid: 0f3d160ccae409444934e91a9bf1056d, type: 3}

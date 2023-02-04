@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RopeLadder
   m_EditorClassIdentifier: 
   itemType: 103
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  sprite: {fileID: 21300000, guid: 09d3d55d678d61d4584892ded25bcb8a, type: 3}

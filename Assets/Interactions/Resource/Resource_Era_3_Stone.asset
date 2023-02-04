@@ -32,6 +32,12 @@ MonoBehaviour:
     - Item: 8
       Amount: 1
       Droprate: 10
+    - Item: 5
+      Amount: 1
+      Droprate: 25
+    - Item: 9
+      Amount: 1
+      Droprate: 25
   InteractionResultType: 3
   ResultItem: 0
   landmarkType: 0

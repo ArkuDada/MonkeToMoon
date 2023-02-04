@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CopperOre
   m_EditorClassIdentifier: 
   itemType: 6
-  sprite: {fileID: 21300000, guid: 345e3f5e1d13ea84aaa1d1849ac092d5, type: 3}
+  sprite: {fileID: 21300000, guid: 477c7e1de76ec7f44ab6d7170a656037, type: 3}

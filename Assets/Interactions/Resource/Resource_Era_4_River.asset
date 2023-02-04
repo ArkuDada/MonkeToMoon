@@ -15,23 +15,26 @@ MonoBehaviour:
   Requirement:
     Requirements:
     - Item: 3
-      Amount: 3
+      Amount: 5
       Droprate: 75
     - Item: 2
       Amount: 2
-      Droprate: 30
-    - Item: 2
-      Amount: 2
-      Droprate: 30
+      Droprate: 50
     - Item: 6
       Amount: 1
-      Droprate: 5
+      Droprate: 20
     - Item: 106
       Amount: 1
-      Droprate: 5
+      Droprate: 20
+    - Item: 8
+      Amount: 1
+      Droprate: 20
+    - Item: 9
+      Amount: 0
+      Droprate: 15
   InteractionResultType: 3
   ResultItem: 0
   landmarkType: 0
   era: 0
   victoryType: 0
-  CooldownTime: 1
+  CooldownTime: 0.5

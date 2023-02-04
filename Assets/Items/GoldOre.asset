@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GoldOre
   m_EditorClassIdentifier: 
   itemType: 8
-  sprite: {fileID: 21300000, guid: 56113bdd76cf2ec4289ca88029b21ca3, type: 3}
+  sprite: {fileID: 21300000, guid: f6ac762d0f852e44bbee9916286dcbd0, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Coal
   m_EditorClassIdentifier: 
   itemType: 4
-  sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  sprite: {fileID: 21300000, guid: febd6494fea1c884483889fc03ec896a, type: 3}
