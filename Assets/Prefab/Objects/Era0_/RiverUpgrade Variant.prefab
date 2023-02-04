@@ -79,11 +79,17 @@ PrefabInstance:
     - {fileID: 3995742448878599141, guid: 5fd0449f70883664ba4417f04ca526ba, type: 3}
     - {fileID: 1701581459513229567, guid: 5fd0449f70883664ba4417f04ca526ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5fd0449f70883664ba4417f04ca526ba, type: 3}
---- !u!1 &2831100578770923068 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7510503136137476407, guid: 5fd0449f70883664ba4417f04ca526ba, type: 3}
+--- !u!114 &2836589959951001679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7506704255126142788, guid: 5fd0449f70883664ba4417f04ca526ba, type: 3}
   m_PrefabInstance: {fileID: 5724282063698614027}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77251002f775f9409c64113895ee54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8647763008371485921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3995742448878599146, guid: 5fd0449f70883664ba4417f04ca526ba, type: 3}
@@ -103,4 +109,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionList:
   - {fileID: 11400000, guid: ffde4f585cdb0ee4992657ba29a94b2c, type: 2}
-  prompt: {fileID: 2831100578770923068}
+  prompt: {fileID: 2836589959951001679}

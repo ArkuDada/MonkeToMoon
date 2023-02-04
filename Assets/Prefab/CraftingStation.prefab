@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 3995742448878599142}
   - component: {fileID: 3995742448878599143}
   - component: {fileID: 3995742448878599144}
-  - component: {fileID: 1701581459513229567}
   m_Layer: 0
   m_Name: CraftingStation
   m_TagString: Untagged
@@ -187,20 +186,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &1701581459513229567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3995742448878599146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18ddd6eb14ac80e4591fdbf3713be7fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionList: []
-  prompt: {fileID: 7506704255126142788}
 --- !u!1 &5717754216565738308
 GameObject:
   m_ObjectHideFlags: 0
