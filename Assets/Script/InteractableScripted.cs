@@ -37,34 +37,18 @@ public class InteractableScripted : Interactable
 
     private void ChangeInteraction(int value)
     {
-        if(value == 1)
-        {
-            currentInteraction++;
-            if(currentInteraction >= interactionList.Count)
+        currentInteraction += value;
+            if (currentInteraction >= interactionList.Count)
             {
                 currentInteraction = 0;
             }
-            prompt.GetComponent<InteractionPrompt>()
-                .SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract());
-            FreezeTime(true);
-        }
-        else if(value == -1)
-        {
-            currentInteraction--;
-            if(currentInteraction < 0)
+            else if (currentInteraction < 0)
             {
                 currentInteraction = interactionList.Count - 1;
             }
             prompt.GetComponent<InteractionPrompt>()
                 .SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract());
             FreezeTime(true);
-        }else if(value == 0)
-        {
-            currentInteraction = 0;
-            prompt.GetComponent<InteractionPrompt>()
-                .SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract());
-            FreezeTime(true);
-        }
 
     }
     public override void Interact()
@@ -83,11 +67,9 @@ public class InteractableScripted : Interactable
             }
             else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Landmark)
             {
+                GameManager.Instance.CompleteLandMark(interactionList[currentInteraction].landmarkType);
                 interactionList.RemoveAt(currentInteraction);
                 
-                //upgrade landmark
-                //DO LANDMARK STUFF
-                //GAMEMANAGER PROGRESS COUNT ++
                 
                 Destroy(gameObject);
             }

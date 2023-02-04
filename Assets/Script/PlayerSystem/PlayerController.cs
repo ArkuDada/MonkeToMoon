@@ -97,13 +97,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (canAttack && !IsAttacking)
-            {
                 particleController.AttackParticle.Play();
                 attackController.direction = new Vector2(Side, 0);
                 attackController.Fire();
-                StartCoroutine(DisableMovement());
-            }
+                //StartCoroutine(DisableMovement());
         }
 
         if (newCollCheck.OnGround && !groundInteract && !newCollCheck.OnPlatform)

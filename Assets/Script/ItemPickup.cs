@@ -35,7 +35,7 @@ public class ItemPickup : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log($"Pickup {ItemType}");
+            //Debug.Log($"Pickup {ItemType}");
            InventoryManager.Instance.AddItem(ItemType);
             Destroy(gameObject);
         }

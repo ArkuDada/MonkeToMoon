@@ -34,6 +34,6 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        //if(dontDestroyOnLoad) DontDestroyOnLoad(gameObject);
     }
 }
