@@ -4,13 +4,14 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PeriodManager : MonoSingleton<PeriodManager>
+public class EraManager : MonoSingleton<EraManager>
 {
     public int year;
     float timer;
     public float yearDuration = 15;
-    public Era currentEra;
-    
+    public List<EraData> eraDatas;
+    public int currentEra;
+    public EraData CurrentEraData => eraDatas[currentEra];
     public UnityEvent onEraChange = new UnityEvent();
 
     private void Start()
@@ -19,7 +20,7 @@ public class PeriodManager : MonoSingleton<PeriodManager>
 
     public void ChangeEra(Era era)
     {
-        currentEra = era;
+        currentEra = eraDatas.FindIndex(x => x.era == era);
         onEraChange.Invoke();
     }
     public void Update()
@@ -35,11 +36,16 @@ public class PeriodManager : MonoSingleton<PeriodManager>
     [Button]
     public void NextEra()
     {
-        if(currentEra<Era.Future) currentEra++;
+        if(currentEra<eraDatas.Count) currentEra++;
         onEraChange.Invoke();
     }
 }
-
+[System.Serializable]
+public struct EraData
+{
+    public Era era;
+    public float lifeSpan;
+}
 public enum Era
 {
     Monke =0,

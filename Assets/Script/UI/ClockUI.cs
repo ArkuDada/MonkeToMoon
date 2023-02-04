@@ -12,6 +12,6 @@ public class ClockUI : MonoBehaviour
     private void Update()
     {
         //clockHand.transform.eulerAngles = new Vector3(0,0,Time.time * 360 / 60);
-        clockText.text = PeriodManager.Instance.year.ToString();
+        clockText.text = EraManager.Instance.year.ToString();
     }
 }
