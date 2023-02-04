@@ -19,7 +19,8 @@ public class GameManager : MonoSingleton<GameManager>
                 landMark[i].objects[j].SetActive(false);
             }
         }
-        VictoryObject.SetActive(false);
+        if(VictoryObject)
+            VictoryObject.SetActive(false);
     }
     public void CompleteLandMark(LandmarkType type)
     {
