@@ -13,7 +13,7 @@ public class ClockUI : MonoBehaviour
     
     private void Update()
     {
-        healthBar.value = (LifeManager.Instance.Age+ em.timer / em.yearDuration) / em.CurrentEraData.lifeSpan;
+        healthBar.value = 1-(LifeManager.Instance.Age+ em.timer / em.yearDuration) / em.CurrentEraData.lifeSpan;
         clockHand.fillAmount = (em.timer / em.yearDuration) * .25f;
         clockText.text = em.year.ToString();
     }

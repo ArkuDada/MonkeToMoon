@@ -10142,7 +10142,7 @@ SpriteRenderer:
   m_SortingLayerID: 1148473621
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 21300000, guid: c2fc66f0a86740e468e63071a70be784, type: 3}
+  m_Sprite: {fileID: 1239676567, guid: 302d70e202bdeff4aa156fae6ffd9e54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10220,6 +10220,7 @@ MonoBehaviour:
   Side: 1
   isMainCharacter: 1
   IsAttacking: 0
+  attackCooldown: 0
 --- !u!114 &2638455577490089547
 MonoBehaviour:
   m_ObjectHideFlags: 0
