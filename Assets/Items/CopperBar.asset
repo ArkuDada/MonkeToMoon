@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3b15a455aeb83458375a830be5e61d, type: 3}
   m_Name: CopperBar
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 14
   sprite: {fileID: 0}
