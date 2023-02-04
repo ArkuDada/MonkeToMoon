@@ -12,7 +12,7 @@ public class ItemPickup : MonoBehaviour
     private void Start()
     {
         Spawn();
-        delay = 0.5f;
+        delay = 0.1f;
     }
     [Button]
 

@@ -26,7 +26,7 @@ public class InventoryUI : MonoBehaviour
         }
 
         InventoryManager.Instance.OnInvUpdate.AddListener(UpdateUI);
-        UpdateUI(new Dictionary<ItemType, int>());
+        UpdateUI(InventoryManager.Instance.GetInv());
     }
 
     private void UpdateUI(Dictionary<ItemType, int> inv)
@@ -45,15 +45,19 @@ public class InventoryUI : MonoBehaviour
         
         foreach (KeyValuePair<ItemType, int> pair in inv)
         {
-            if(pair.Key < ItemType.KeyItem)
-                normalItem.Add(pair);
+            if (pair.Key < ItemType.KeyItem)
+            {
+                if(pair.Value>0)normalItem.Add(pair);
+            }
             else if(pair.Key > ItemType.KeyItem)
                 keyItem.Add(pair);
         }
         for (var i = 0; i < hotbarImg.Count; i++)
         {
+            
             var img = hotbarImg[i];
             var count = itemCount[i];
+            
             count.text = "";
             Sprite s = null;
             if (normalItem.Count > i)

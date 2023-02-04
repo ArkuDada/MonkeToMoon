@@ -8,7 +8,6 @@ public class Landmark : InteractableScripted
 {
     private float interactTimer = 0;
 
-    public GameObject pickupPrefab;
 
 // Start is called before the first frame update
     public override void Interact()
@@ -29,7 +28,7 @@ public class Landmark : InteractableScripted
                 {
                     for (int i = 0; i < drop.Amount; i++)
                     {
-                        GameObject pickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+                        GameObject pickup = Instantiate(GameManager.Instance.PickupPrefab, transform.position, Quaternion.identity);
                         var pick = pickup.GetComponent<ItemPickup>();
                         pick.ItemType = drop.Item;
                     }

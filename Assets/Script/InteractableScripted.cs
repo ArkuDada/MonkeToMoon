@@ -61,7 +61,9 @@ public class InteractableScripted : Interactable
             }
             if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Craft)
             {
-                InventoryManager.Instance.AddItem(interactionList[currentInteraction].ResultItem, 1);
+                GameObject pickup = Instantiate(GameManager.Instance.PickupPrefab, transform.position, Quaternion.identity);
+                var pick = pickup.GetComponent<ItemPickup>();
+                pick.ItemType = interactionList[currentInteraction].ResultItem;
                 //TODO:: change to spawn item
 
             }

@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class InventoryManager : MonoSingleton<InventoryManager>
 {
     private Dictionary<ItemType, int> Inv = new Dictionary<ItemType, int>();
-
+public Dictionary<ItemType, int> GetInv() { return Inv; }
     [HideInInspector]
     public UnityEvent<Dictionary<ItemType, int>> OnInvUpdate = new UnityEvent<Dictionary<ItemType, int>>();
 

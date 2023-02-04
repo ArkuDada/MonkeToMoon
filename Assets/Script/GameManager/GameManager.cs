@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 public class GameManager : MonoSingleton<GameManager>
 {
     [FormerlySerializedAs("landMarkSprites")] [SerializeField] private LandmarkStage[] landMark;
-    
+    public GameObject PickupPrefab;
     public void Start()
     {
         OnLandMarkProgressUpdate();

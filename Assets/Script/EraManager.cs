@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EraManager : MonoSingleton<EraManager>
 {
@@ -50,6 +51,7 @@ public class EraManager : MonoSingleton<EraManager>
     {
         if(currentEra<eraDatas.Count-1) currentEra++;
         onEraChange.Invoke();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 [System.Serializable]
