@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Requirement:
     Requirements:
-    - Item: 12
+    - Item: 102
       Amount: 2
       Droprate: 100
-    - Item: 16
+    - Item: 104
       Amount: 2
       Droprate: 100
-    - Item: 14
+    - Item: 109
       Amount: 2
       Droprate: 100
-    - Item: 17
-      Amount: 3
+    - Item: 108
+      Amount: 2
       Droprate: 100
   InteractionResultType: 1
   ResultItem: 0

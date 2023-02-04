@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Requirement:
     Requirements:
-    - Item: 4
+    - Item: 2
       Amount: 5
       Droprate: 100
   InteractionResultType: 1

@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Requirement:
     Requirements:
-    - Item: 10
+    - Item: 104
+      Amount: 2
+      Droprate: 100
+    - Item: 102
+      Amount: 2
+      Droprate: 100
+    - Item: 105
+      Amount: 3
+      Droprate: 100
+    - Item: 6
       Amount: 5
       Droprate: 100
-    - Item: 5
-      Amount: 5
-      Droprate: 100
-    - Item: 8
-      Amount: 5
-      Droprate: 100
-    - Item: 13
-      Amount: 5
-      Droprate: 100
-    - Item: 9
+    - Item: 106
       Amount: 5
       Droprate: 100
   InteractionResultType: 1
