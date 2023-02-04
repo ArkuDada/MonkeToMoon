@@ -11,9 +11,9 @@ public class InteractionSO : ScriptableObject
     public InteractionRequirement Requirement;
     public Era era;
     
-    public bool isResultItem;
+    public bool isResultItem = false;
     public ItemType ResultItem;
-    public int ResultAmount;
+    public int ResultAmount = 1;
 }
 
 [Serializable]
