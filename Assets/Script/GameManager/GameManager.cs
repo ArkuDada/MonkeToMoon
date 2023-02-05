@@ -9,6 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
     [FormerlySerializedAs("landMarkSprites")] [SerializeField] private LandmarkStage[] landMark;
     public GameObject VictoryObject;
     public GameObject PickupPrefab;
+    public Era VictoryEra = Era.Monke;
     public void Start()
     {
         OnLandMarkProgressUpdate();
@@ -36,6 +37,10 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnLandMarkProgressUpdate()
     {
+        if(landMark.Length == 0)
+        {
+            return;
+        }
         bool allCompleted = true;
         for(int i = 0; i < landMark.Length; i++)
         {
@@ -65,6 +70,7 @@ public class GameManager : MonoSingleton<GameManager>
     }
     IEnumerator VictoryCoroutine()
     {
+        VictoryEra = EraManager.Instance.CurrentEraData.era;
         EraManager.Instance.freezeTime = true;
         VictoryObject.SetActive(true);
         yield return new WaitForSeconds(2);
