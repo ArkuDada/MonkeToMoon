@@ -10,11 +10,17 @@ public class InteractionPrompt : MonoBehaviour
     public List<PromptItemIcon> Icons;
     public float iconSize = 1f;
     public float iconPadding = 0.5f;
+    public SpriteRenderer iconSprite;
     public GameObject scrollPrompt;
     public GameObject interactPrompt;
     public GameObject resourceCounter;
     public TMP_Text timeText;
     public Image timeBar;
+    
+    public Sprite craftIcon;
+    public Sprite resourceIcon;
+    public Sprite landmarkIcon;
+    public Sprite victoryIcon;
     
     [SerializeField]
     private GameObject iconPrefab;
@@ -62,6 +68,22 @@ public class InteractionPrompt : MonoBehaviour
                     : $"{Mathf.Ceil(interactTimer)}";
                 timeBar.fillAmount = interactTimer / interactionDetail.CooldownTime;
             }
+        }
+
+        switch (interactionDetail.InteractionResultType)
+        {
+            case InteractionResultType.Craft:
+                iconSprite.sprite = craftIcon;
+                break;
+            case InteractionResultType.Landmark:
+                iconSprite.sprite = landmarkIcon;
+                break;
+            case InteractionResultType.Victory:
+                iconSprite.sprite = victoryIcon;
+                break;
+            case InteractionResultType.Resource:
+                iconSprite.sprite = resourceIcon;
+                break;
         }
         
     }
