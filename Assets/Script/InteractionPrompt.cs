@@ -58,7 +58,7 @@ public class InteractionPrompt : MonoBehaviour
             resourceCounter.SetActive(isResource);
             if(isResource)
             {
-                timeText.text = canInteract ? $"{(int)interactionDetail.CooldownTime}" 
+                timeText.text = canInteract ? $"{Mathf.Round(interactionDetail.CooldownTime)}" 
                     : $"{Mathf.Ceil(interactTimer)}";
                 timeBar.fillAmount = interactTimer / interactionDetail.CooldownTime;
             }

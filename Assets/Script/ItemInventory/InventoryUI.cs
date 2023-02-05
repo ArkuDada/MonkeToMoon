@@ -66,7 +66,7 @@ public class InventoryUI : MonoBehaviour
                 count.text = normalItem[i].Value.ToString();
             }
             img.sprite = s;
-            img.color = img != null ? Color.white : Color.clear;
+            img.color = img.sprite != null ? Color.white : Color.clear;
         }
 
         int ki = 0;
