@@ -7,6 +7,7 @@ public class CheatNoclip : MonoBehaviour
     private bool isOn;
     private void Update()
     {
+        return;
         if (Input.GetKeyDown(KeyCode.F1))
         {
             PlayerController.Instance.Rigid2D.isKinematic = !isOn;
