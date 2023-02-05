@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Era0.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Era1.unity
+    guid: a033015f992c57c42b0047b00be8c5e0
+  - enabled: 1
+    path: Assets/Scenes/Era2.unity
+    guid: ac7a46d4a90f9ee4598182af0f72607d
+  - enabled: 1
+    path: Assets/Scenes/Era3.unity
+    guid: 1e55eea792ce01543bc2265f4fa535d2
+  - enabled: 1
+    path: Assets/Scenes/Era4.unity
+    guid: da9430a6758398042837c0f5696275da
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 3efe075e974432747bcfecf5b6760625
   m_configObjects: {}
