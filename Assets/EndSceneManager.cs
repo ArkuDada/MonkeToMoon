@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndSceneManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class EndSceneManager : MonoBehaviour
             e.SetActive(false);
         }   
         
-        endSceneObjects[(int)GameManager.Instance.VictoryEra].SetActive(true);
+        endSceneObjects[(int)EraManager.Instance.VictoryEra].SetActive(true);
 
         StartCoroutine(PlayEndSequence());
     }
@@ -23,6 +24,10 @@ public class EndSceneManager : MonoBehaviour
     IEnumerator PlayEndSequence()
     {
         yield return new WaitForSeconds(1);
-        CameraAnimator.SetTrigger("play");
+        CameraAnimator.enabled = true;
+        CameraAnimator.Play("endCamera");
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene("TitleScreen");
+
     }
 }

@@ -11,9 +11,11 @@ public class CameraManager : MonoSingleton<CameraManager>
     public float panSpeed = 50f;
     public float panTime = 1f;
 
+   [SerializeField] private bool DoPan = true;
     private void Start()
     {
-        PanDown();
+        if(DoPan)PanDown();
+
     }
 
     protected override void Awake()

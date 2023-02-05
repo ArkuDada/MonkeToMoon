@@ -111,6 +111,7 @@ private float interactTimer = 0;
             else if(interactionList[currentInteraction].InteractionResultType == InteractionResultType.Victory)
             {
                 GameManager.Instance.GameVictory();
+                Destroy(gameObject);
             }
 
         }

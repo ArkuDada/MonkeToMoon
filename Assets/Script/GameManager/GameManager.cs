@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -74,16 +75,18 @@ public class GameManager : MonoSingleton<GameManager>
     [Button]
     public void GameVictory()
     {
+        EraManager.Instance.UpdateVictoryEra();
         StartCoroutine(VictoryCoroutine());
     }
     IEnumerator VictoryCoroutine()
     {
-        VictoryEra = EraManager.Instance.CurrentEraData.era;
         EraManager.Instance.gameFreeze = true;
-        VictoryObject.SetActive(true);
+        if(VictoryObject)VictoryObject.SetActive(true);
         yield return new WaitForSeconds(2);
         Debug.Log("Game Victory");
         CameraManager.Instance.PanUp();
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("End");
     }
 }
 

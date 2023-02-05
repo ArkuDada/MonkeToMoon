@@ -17,6 +17,8 @@ public class EraManager : MonoSingleton<EraManager>
     public float yearDuration = 1;
     public List<EraData> eraDatas;
     public int currentEra;
+    
+    public Era VictoryEra = Era.Monke;
     public EraData CurrentEraData => eraDatas[currentEra];
     public UnityEvent onEraChange = new UnityEvent();
 
@@ -29,6 +31,10 @@ public class EraManager : MonoSingleton<EraManager>
     private void Start()
     {
         
+    }
+    public void UpdateVictoryEra()
+    {
+        VictoryEra = (Era)currentEra;
     }
 
     public void ChangeEra(Era era)
