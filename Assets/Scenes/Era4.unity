@@ -759,6 +759,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RandomItemSpawnner
       objectReference: {fileID: 0}
+    - target: {fileID: 6384314779771187612, guid: 3c2650901f4898043a552e02e7b3b57b, type: 3}
+      propertyPath: MeteorUpRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384314779771187612, guid: 3c2650901f4898043a552e02e7b3b57b, type: 3}
+      propertyPath: MeteorStartRate
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c2650901f4898043a552e02e7b3b57b, type: 3}
 --- !u!114 &1702552883 stripped
