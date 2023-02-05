@@ -2462,7 +2462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
       propertyPath: interactionList.Array.size
-      value: 7
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
       propertyPath: interactionList.Array.data[2]
@@ -2479,11 +2479,35 @@ PrefabInstance:
     - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
       propertyPath: interactionList.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 0d95e92aa99064349b2f23412663ad2a, type: 2}
+      objectReference: {fileID: 11400000, guid: 53876251b5303cc4685cdc691cf8600a, type: 2}
     - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
       propertyPath: interactionList.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 2dde0a0d6d34b934f9ca47dae0c59840, type: 2}
+      objectReference: {fileID: 11400000, guid: bc78682b094b00f4e8674b98fc71d7cf, type: 2}
+    - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
+      propertyPath: interactionList.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d241d986b76ee84f9ef2945ba8e4af6, type: 2}
+    - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
+      propertyPath: interactionList.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 26539392443e98e45af7a0786d5fde2d, type: 2}
+    - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
+      propertyPath: interactionList.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bfbe6405c7bbac43b408d80070828e6, type: 2}
+    - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
+      propertyPath: interactionList.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ad0466e2a2dd5348a8876aca6d1eb3e, type: 2}
+    - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
+      propertyPath: interactionList.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 19842f72bb3d0064fa3257f1812a6be8, type: 2}
+    - target: {fileID: 8575150857464564691, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
+      propertyPath: interactionList.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: a375d9555a1647b4cb4f52abbc44adb6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d4400404bac9be41b87440c6560329b, type: 3}
 --- !u!1001 &7931994182101444294
