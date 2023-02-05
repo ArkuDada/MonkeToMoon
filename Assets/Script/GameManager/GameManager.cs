@@ -72,7 +72,7 @@ public class GameManager : MonoSingleton<GameManager>
     IEnumerator VictoryCoroutine()
     {
         VictoryEra = EraManager.Instance.CurrentEraData.era;
-        EraManager.Instance.freezeTime = true;
+        EraManager.Instance.gameFreeze = true;
         VictoryObject.SetActive(true);
         yield return new WaitForSeconds(2);
         Debug.Log("Game Victory");

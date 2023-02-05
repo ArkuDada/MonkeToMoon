@@ -129,7 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 786fc0eb85f8ce149ae942dc8b4c92cc, type: 3}
     - target: {fileID: 3965099949289632314, guid: 351223323713b16428546109640e8fd5, type: 3}
       propertyPath: m_Name
-      value: Era1World
+      value: Era1World Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3965099949289632315, guid: 351223323713b16428546109640e8fd5, type: 3}
       propertyPath: m_RootOrder
@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 3c133644870be774faa8dd2475522e1e, type: 3}
+    - target: {fileID: 5586323903079116813, guid: 351223323713b16428546109640e8fd5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 351223323713b16428546109640e8fd5, type: 3}
 --- !u!4 &4054933967025714208 stripped

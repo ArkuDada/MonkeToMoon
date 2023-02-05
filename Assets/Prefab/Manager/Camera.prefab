@@ -234,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3388220408443086867}
   - component: {fileID: 3388220408443086876}
+  - component: {fileID: 437610511}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -273,6 +274,26 @@ MonoBehaviour:
   mainCamera: {fileID: 3388220408397862346}
   panSpeed: 3
   panTime: 4
+--- !u!95 &437610511
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388220408443086877}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ad3f9b8bee155646832129a0493e8aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &3388220409564609107
 GameObject:
   m_ObjectHideFlags: 0
