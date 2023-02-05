@@ -13,7 +13,8 @@ public class WalkController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
-
+    
+    public bool IsWalking => rb.velocity.magnitude > 0.1f ? true : false;
     public void Walk(Vector2 vec2)
     {
         var finalVec = new Vector2(moveSpeed * vec2.x, rb.velocity.y);

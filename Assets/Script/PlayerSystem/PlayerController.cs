@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private OneWayPlatform oneWay;
     [SerializeField] private ParticleController particleController;
     public AttackController attackController;
+    public PlayerWalkSound playerWalkSound; 
+    
     
     [Header("Assign")]
     [SerializeField] private Rigidbody2D rigid2D;
@@ -150,6 +152,11 @@ public class PlayerController : MonoBehaviour
         {
             rigid2D.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }*/
+        
+        
+        playerWalkSound.Mute(!walkController.IsWalking);
+        
+        
     }
     
     public IEnumerator DisableMovement()
