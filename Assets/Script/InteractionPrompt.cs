@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionPrompt : MonoBehaviour
 {
@@ -10,14 +12,13 @@ public class InteractionPrompt : MonoBehaviour
     public float iconPadding = 0.5f;
     public GameObject scrollPrompt;
     public GameObject interactPrompt;
+    public GameObject resourceCounter;
+    public TMP_Text timeText;
+    public Image timeBar;
     
     [SerializeField]
     private GameObject iconPrefab;
-    private void OnEnable()
-    {
-//        throw new NotImplementedException();
-    }
-    public void SetPromptDetail(InteractionSO interactionDetail, bool canInteract,int interactCount)
+    public void SetPromptDetail(InteractionSO interactionDetail, bool canInteract,int interactCount,float interactTimer = 0.0f)
     {
         interactPrompt.SetActive(canInteract);
         scrollPrompt.SetActive(interactCount > 1);
@@ -52,9 +53,15 @@ public class InteractionPrompt : MonoBehaviour
 
         }
 
-        if(isResource)
+        if (resourceCounter)
         {
-            //TODO:: show clock icon
+            resourceCounter.SetActive(isResource);
+            if(isResource)
+            {
+                timeText.text = $"{Mathf.RoundToInt(interactTimer)}";
+                timeBar.fillAmount = interactTimer / interactionDetail.CooldownTime;
+            }
         }
+        
     }
 }
