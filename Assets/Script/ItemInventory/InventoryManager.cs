@@ -20,6 +20,14 @@ public Dictionary<ItemType, int> GetInv() { return Inv; }
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            isDebug = !isDebug;            
+        }
+    }
+
     private void UpdateInv()
     {
         OnInvUpdate.Invoke(Inv);
