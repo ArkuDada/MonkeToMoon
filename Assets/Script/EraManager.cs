@@ -45,6 +45,7 @@ public class EraManager : MonoSingleton<EraManager>
             timer = 0;
             year += 1;
             LifeManager.Instance.AgeCheck();
+            GodGive.Instance.TrySpawnItem();
         }
     }
 
