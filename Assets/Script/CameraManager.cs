@@ -82,9 +82,9 @@ public class CameraManager : MonoSingleton<CameraManager>
         while(transform.position.y > PlayerController.Instance.transform.position.y + 1)
         {
             transform.position -= new Vector3(0, panSpeed * 2 * Time.deltaTime, 0);
+        ParallaxController.Instance.ResetCameraPosition();
             yield return null;
         }
-        ParallaxController.Instance.ResetCameraPosition();
         mainCamera.Follow = PlayerController.Instance.transform;
         EraManager.Instance.camFreeze = false;
         am.enabled = true;
