@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2084390269312159470}
   - component: {fileID: 2084390269312159377}
-  - component: {fileID: 2084390269312159471}
   m_Layer: 0
   m_Name: Era
   m_TagString: Untagged
@@ -79,7 +78,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   year: 0
   timer: 0
-  freezeTime: 0
+  craftFreeze: 0
+  camFreeze: 0
+  gameFreeze: 0
+  lifeFreeze: 0
   yearDuration: 1
   eraDatas:
   - era: 0
@@ -96,18 +98,3 @@ MonoBehaviour:
   onEraChange:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2084390269312159471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084390269312159376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb1dd9cd43c6204b831211694cea699, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1071827742}
-  deadBody: {fileID: 6832892577769982586, guid: bb04ef11d1a15a64f8a74190fa36cd57, type: 3}
-  birthYear: 0
