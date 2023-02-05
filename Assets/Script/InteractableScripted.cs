@@ -157,7 +157,7 @@ private float interactTimer = 0;
         {
             return;
         }
-        EraManager.Instance.freezeTime = isFreeze && IsCrafting;
+        EraManager.Instance.craftFreeze = isFreeze && IsCrafting;
     }
     void SetupPrompt()
     {

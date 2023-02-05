@@ -9,7 +9,11 @@ public class EraManager : MonoSingleton<EraManager>
 {
     public int year;
     public float timer;
-    public bool freezeTime;
+    public bool craftFreeze;
+    public bool camFreeze;
+    public bool gameFreeze;
+    public bool lifeFreeze;
+    public bool freezeTime => gameFreeze || camFreeze || craftFreeze || lifeFreeze;
     public float yearDuration = 1;
     public List<EraData> eraDatas;
     public int currentEra;

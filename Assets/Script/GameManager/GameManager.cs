@@ -53,8 +53,9 @@ public class GameManager : MonoSingleton<GameManager>
     }
     IEnumerator LandmarkCoroutine()
     {
-        EraManager.Instance.freezeTime = true;
+        EraManager.Instance.gameFreeze = true;
         yield return new WaitForSeconds(3);
+        CameraManager.Instance.PanUp();
         FadeUI.Instance.shouldFadeToBlack = true;
         yield return new WaitForSeconds(2);
         EraManager.Instance.NextEra();
@@ -65,7 +66,7 @@ public class GameManager : MonoSingleton<GameManager>
     }
     IEnumerator VictoryCoroutine()
     {
-        EraManager.Instance.freezeTime = true;
+        EraManager.Instance.gameFreeze = true;
         VictoryObject.SetActive(true);
         yield return new WaitForSeconds(2);
         Debug.Log("Game Victory");
