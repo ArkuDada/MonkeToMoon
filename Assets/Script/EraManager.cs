@@ -56,7 +56,12 @@ public class EraManager : MonoSingleton<EraManager>
     {
         if(currentEra<eraDatas.Count-1) currentEra++;
         onEraChange.Invoke();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        camFreeze = false;
+        craftFreeze = false;
+        gameFreeze = false;
+        lifeFreeze = false;
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
 [System.Serializable]

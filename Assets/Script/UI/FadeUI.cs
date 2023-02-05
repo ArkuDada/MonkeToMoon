@@ -12,11 +12,20 @@ public class FadeUI : MonoSingleton<FadeUI>
 
     public bool shouldFadeToBlack;
 
+    private void Start()
+    {
+        fadeImage.color = Color.black;
+    }
+
     void Update()
     {
         if (shouldFadeToBlack)
         {
             fadeImage.color = Color.Lerp(fadeImage.color, Color.black, fadeSpeed * Time.deltaTime);
+        }
+        else
+        {
+            fadeImage.color = Color.Lerp(fadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
         }
     }
 [Button]

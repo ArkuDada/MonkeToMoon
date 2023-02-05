@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -56,6 +57,11 @@ public class GameManager : MonoSingleton<GameManager>
             StartCoroutine(LandmarkCoroutine());
         }
     }
+    [Button]
+    public void LandmarkComplete()
+    {
+        StartCoroutine(LandmarkCoroutine());
+    }
     IEnumerator LandmarkCoroutine()
     {
         EraManager.Instance.gameFreeze = true;
@@ -65,6 +71,7 @@ public class GameManager : MonoSingleton<GameManager>
         yield return new WaitForSeconds(2);
         EraManager.Instance.NextEra();
     }
+    [Button]
     public void GameVictory()
     {
         StartCoroutine(VictoryCoroutine());

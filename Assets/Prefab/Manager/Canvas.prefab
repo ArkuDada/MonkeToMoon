@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 769904887608951768}
-  fadeSpeed: 3
+  fadeSpeed: 2
   shouldFadeToBlack: 0
 --- !u!1 &4142585756952091732
 GameObject:
