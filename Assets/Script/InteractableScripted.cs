@@ -40,7 +40,7 @@ private float interactTimer = 0;
 
         if (interactionList[currentInteraction].InteractionResultType == InteractionResultType.Resource&&IsInRange)
         {
-            prompt.SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract(),interactionList.Count);
+            SetupPrompt();
         }
     }
 
@@ -55,7 +55,7 @@ private float interactTimer = 0;
             {
                 currentInteraction = interactionList.Count - 1;
             }
-            prompt.SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract(),interactionList.Count);
+            SetupPrompt();
             FreezeTime(true);
 
     }
@@ -147,7 +147,7 @@ private float interactTimer = 0;
         prompt.gameObject.SetActive(isActive);
         if(isActive)
         {
-            prompt.SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract(),interactionList.Count);
+            SetupPrompt();
         }
     }
 
@@ -158,5 +158,9 @@ private float interactTimer = 0;
             return;
         }
         EraManager.Instance.freezeTime = isFreeze && IsCrafting;
+    }
+    void SetupPrompt()
+    {
+            prompt.SetPromptDetail(interactionList[currentInteraction], CanCompleteInteract(),interactionList.Count, interactTimer);
     }
 }
