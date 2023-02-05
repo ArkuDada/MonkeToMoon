@@ -23,5 +23,15 @@ public GameObject credits;
     public void Quit()
     {
         Application.Quit();
+    }void Start()
+    {
+        GameObject[] objects = FindObjectsOfType<GameObject>();
+        foreach (var obj in objects)
+        {
+            if (obj.hideFlags == HideFlags.DontSave)
+            {
+                Destroy(obj);
+            }
+        }
     }
 }

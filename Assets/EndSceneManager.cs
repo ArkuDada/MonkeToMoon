@@ -27,6 +27,8 @@ public class EndSceneManager : MonoBehaviour
         CameraAnimator.enabled = true;
         CameraAnimator.Play("endCamera");
         yield return new WaitForSeconds(10);
+        Destroy(InventoryManager.Instance.gameObject);
+        Destroy(EraManager.Instance.gameObject);
         SceneManager.LoadScene("TitleScreen");
 
     }
