@@ -18,7 +18,7 @@ public class PromptItemIcon : MonoBehaviour
     public void SetIcon(ItemType itemType, int Count,int Percent,bool isFound,bool isInteractable)
     {
         bool showPersent =( Percent != -1 && Percent < 100.0f);
-        sr.sprite =isFound ?  ItemDatabase.Instance?.Database[itemType].sprite : ItemDatabase.Instance.missingItem;
+        sr.sprite =isFound||itemType<ItemType.CraftItem ?  ItemDatabase.Instance?.Database[itemType].sprite : ItemDatabase.Instance.missingItem;
         textAmount.text = $"{Count}";
         
         textPercent.gameObject.SetActive(showPersent);

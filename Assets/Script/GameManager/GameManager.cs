@@ -58,8 +58,9 @@ public class GameManager : MonoSingleton<GameManager>
     }
     IEnumerator LandmarkCoroutine()
     {
-        EraManager.Instance.freezeTime = true;
+        EraManager.Instance.gameFreeze = true;
         yield return new WaitForSeconds(3);
+        CameraManager.Instance.PanUp();
         FadeUI.Instance.shouldFadeToBlack = true;
         yield return new WaitForSeconds(2);
         EraManager.Instance.NextEra();
@@ -87,7 +88,7 @@ public class LandmarkStage
     public List<GameObject> objects;
     public void Complete()
     {
-        
+
         completed = true;
         foreach (GameObject obj in objects)
         {

@@ -47,12 +47,12 @@ public class LifeManager : MonoSingleton<LifeManager>
         PlayerController.Instance.gameObject.SetActive(false);
         birthYear = em.year;
         var body = Instantiate(deadBody, PlayerController.Instance.transform.position, Quaternion.identity);
-        EraManager.Instance.freezeTime = true;
+        EraManager.Instance.lifeFreeze = true;
         InventoryManager.Instance.Kaboom();
         yield return new WaitForSeconds(2);
         Destroy(body);
         PlayerController.Instance.transform.position = spawnPoint.position;
         PlayerController.Instance.gameObject.SetActive(true);
-        EraManager.Instance.freezeTime = false;
+        EraManager.Instance.lifeFreeze = false;
     }
 }
