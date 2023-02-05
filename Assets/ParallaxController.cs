@@ -43,6 +43,7 @@ public class ParallaxController : MonoBehaviour
         }
 
     }
+    
 
     private void LateUpdate()
     {
